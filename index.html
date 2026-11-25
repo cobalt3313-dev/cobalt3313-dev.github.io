@@ -1,346 +1,410 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>남윤아 · 프로덕트 기획자 포트폴리오</title>
-<meta name="description" content="복잡한 요구를 제품의 기준으로 바꾸고, 팀이 실행할 수 있게 만드는 PM 남윤아의 포트폴리오" />
-<link rel="preconnect" href="https://cdn.jsdelivr.net" />
-<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>남윤아 포트폴리오 · 프로덕트 기획자 / PM</title>
+<meta name="description" content="사용자가 쓰는 기능과 운영자가 쓰는 도구를 함께 기획하는 프로덕트 기획자 남윤아의 포트폴리오.">
+<link rel="stylesheet" as="style" crossorigin
+  href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
+  /* ===== 토큰 ===== */
   :root{
-    --bg:#FFFFFF; --bg-2:#F8F9FB; --bg-3:#F1F3F6; --card:#FFFFFF;
-    --ink:#0F1B33; --ink-2:#2B3A52; --sub:#4A5769; --muted:#626C7A; --faint:#A3ADBA;
-    --line:#F0F2F5; --line-2:#E3E7EC;
-    --blue:#2E7BF6; --blue-solid:#2269DC; --blue-deep:#1B4FA8; --blue-weak:#EAF2FE; --blue-weak-2:#F6FAFF;
-    --amber:#C77700; --amber-weak:#FFF6E5; --amber-line:#F5D9A6;
-    --gray-bar:#6B7684;
-    --sans:'Pretendard','Pretendard Variable',-apple-system,BlinkMacSystemFont,system-ui,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
-    --mono:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;
-    --maxw:1000px;
-    --sh-1:0 1px 2px rgba(0,27,55,.04), 0 4px 14px -6px rgba(0,27,55,.08);
-    --sh-2:0 2px 6px rgba(0,27,55,.05), 0 14px 34px -12px rgba(0,27,55,.14);
+    --bg:#141416; --bg-2:#1B1C1E; --card:#232528; --card-2:#2B2E32;
+    --line:rgba(255,255,255,.075); --line-2:rgba(255,255,255,.14);
+    --ink:#F4F5F7; --sub:#AAAFB7; --dim:#9CA3AC;
+    --acc:#5B9DFF; --acc-2:#93C0FF; --acc-ink:#08101F;
+    --acc-soft:rgba(91,157,255,.15); --acc-line:rgba(91,157,255,.34);
+    --maxw:1120px; --r:18px;
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth;scroll-padding-top:88px;-webkit-text-size-adjust:100%}
-  body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;letter-spacing:-.018em;word-break:keep-all}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:86px;-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);
+    font-family:Pretendard,'Pretendard Variable',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+    font-size:16px;line-height:1.72;letter-spacing:-.01em;word-break:keep-all;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
   a{color:inherit;text-decoration:none}
-  ::selection{background:var(--blue-weak);color:var(--blue-deep)}
+  b,strong{font-weight:700;color:#fff}
+  code{font-family:'SFMono-Regular',Consolas,'Liberation Mono',monospace;font-size:.86em;
+    background:rgba(255,255,255,.07);border:1px solid var(--line);
+    padding:1px 6px;border-radius:6px;color:var(--acc-2)}
+  ::selection{background:var(--acc);color:var(--acc-ink)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+  @media(max-width:720px){.wrap{padding:0 20px}}
 
-  .progress{position:fixed;top:0;left:0;height:3px;background:var(--blue-solid);width:0;z-index:100;transition:width .1s linear;border-radius:0 3px 3px 0}
+  /* ===== 진행 바 · 내비 ===== */
+  .progress{position:fixed;left:0;top:0;height:2px;width:0;background:var(--acc);z-index:90}
+  #nav{position:fixed;left:0;right:0;top:0;z-index:80;transition:background .25s,border-color .25s;
+    border-bottom:1px solid transparent}
+  #nav.scrolled{background:rgba(20,20,22,.86);backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);border-bottom-color:var(--line)}
+  .nav-in{display:flex;align-items:center;gap:22px;height:64px}
+  .logo{font-weight:700;font-size:.95rem;display:flex;align-items:center;gap:9px;white-space:nowrap}
+  .logo .b{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:8px;
+    background:var(--acc);color:var(--acc-ink);font-size:.8rem;font-weight:800}
+  .logo small{color:var(--dim);font-weight:500;font-size:.82rem}
+  .nav-links{display:flex;gap:4px;margin-left:auto;font-size:.88rem;font-weight:600}
+  .nav-links a{color:var(--sub);padding:8px 12px;border-radius:9px;transition:color .16s,background .16s}
+  .nav-links a:hover{color:var(--ink);background:rgba(255,255,255,.06)}
+  .nav-cta{background:var(--acc);color:var(--acc-ink);font-weight:700;font-size:.86rem;
+    padding:9px 17px;border-radius:10px;transition:filter .16s}
+  .nav-cta:hover{filter:brightness(1.1)}
+  @media(max-width:1000px){.nav-links{display:none}}
 
-  nav{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid transparent;transition:border-color .3s}
-  nav.scrolled{border-bottom-color:var(--line-2)}
-  .nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:1rem;letter-spacing:-.03em}
-  .logo .b{width:26px;height:26px;border-radius:9px;background:var(--blue-solid);display:flex;align-items:center;justify-content:center;color:#fff;font-size:.8rem;font-weight:800}
-  .logo small{color:var(--muted);font-weight:600;font-size:.8rem}
-  .nav-links{display:flex;gap:2px}
-  .nav-links a{font-size:.875rem;font-weight:600;color:var(--sub);padding:8px 12px;border-radius:8px;transition:background .18s,color .18s}
-  .nav-links a:hover{background:var(--bg-3);color:var(--ink)}
-  .nav-cta{font-size:.85rem;font-weight:700;background:var(--ink);color:#fff;padding:9px 16px;border-radius:10px;transition:opacity .18s}
-  .nav-cta:hover{opacity:.85}
-  @media(max-width:900px){.nav-links{display:none}}
-
-  .toc{position:fixed;right:calc((100vw - var(--maxw)) / 2 - 210px);top:120px;width:186px;z-index:40}
-  @media(max-width:1480px){.toc{display:none}}
-  .toc .th{font-size:.68rem;font-weight:800;color:var(--muted);letter-spacing:.13em;margin-bottom:12px}
-  .toc a{display:block;font-size:.79rem;font-weight:600;color:var(--muted);padding:6px 0 6px 13px;border-left:2px solid var(--line-2);line-height:1.45;transition:color .2s,border-color .2s}
+  /* ===== 목차 ===== */
+  .toc{position:fixed;left:24px;top:50%;transform:translateY(-50%);z-index:60;
+    font-size:.78rem;line-height:1.9;display:none}
+  @media(min-width:1500px){.toc{display:block}}
+  .toc .th{color:var(--dim);font-weight:700;letter-spacing:.14em;font-size:.66rem;margin-bottom:10px}
+  .toc a{display:block;color:var(--dim);padding:1px 0 1px 12px;border-left:2px solid var(--line);
+    transition:color .18s,border-color .18s}
+  .toc a.sub{padding-left:22px;font-size:.73rem}
   .toc a:hover{color:var(--sub)}
-  .toc a.on{color:var(--blue-deep);border-left-color:var(--blue-solid);font-weight:700}
-  .toc a.sub{padding-left:24px;font-size:.75rem}
+  .toc a.on{color:var(--acc-2);border-left-color:var(--acc)}
 
-  /* ═══ 히어로 — 이 페이지에서 유일한 인터랙티브 영역 ═══ */
-  header{position:relative;overflow:hidden;min-height:min(84vh,760px);display:flex;align-items:center;
-    background:
-      radial-gradient(circle at 78% 22%, rgba(49,130,246,.14), transparent 34%),
-      linear-gradient(180deg, #F7FAFF 0%, #FFFFFF 100%);}
-  @media(max-width:900px){header{min-height:auto;padding:56px 0 64px}}
-  .hero-grid{display:grid;grid-template-columns:minmax(0,1.16fr) minmax(0,.84fr);gap:44px;align-items:center;width:100%}
-  @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:36px}}
-  .badge{display:inline-flex;align-items:center;gap:8px;background:var(--blue-weak);color:var(--blue-deep);font-weight:700;font-size:.79rem;padding:7px 14px;border-radius:100px;margin-bottom:26px}
-  .badge .d{width:6px;height:6px;border-radius:50%;background:var(--blue-solid)}
-  h1.hero{font-size:clamp(1.95rem,4.1vw,2.75rem);font-weight:800;line-height:1.24;letter-spacing:-.05em;color:var(--ink)}
-  h1.hero .pt{color:var(--blue-deep)}
-  .hero-sub{font-size:clamp(1rem,1.6vw,1.09rem);color:var(--sub);margin-top:24px;max-width:34em;font-weight:500;line-height:1.75}
-  .hero-sub b{color:var(--ink);font-weight:700}
-  .hero-art{position:relative;pointer-events:none}
-  .hero-art .art{width:100%;height:auto;max-width:430px;margin:0 auto;display:block;will-change:transform}
-  @media(max-width:900px){.hero-art .art{max-width:340px}}
-  .cta{display:flex;gap:9px;flex-wrap:wrap;margin-top:32px}
-  .btn{display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:.93rem;padding:13px 22px;border-radius:12px;transition:transform .16s cubic-bezier(.2,.8,.2,1),box-shadow .2s,background .2s,color .2s}
-  .btn.p{background:var(--blue-solid);color:#fff;box-shadow:0 8px 20px -8px rgba(27,79,168,.55)}
-  .btn.p:hover{background:var(--blue-deep);transform:translateY(-1px)}
-  .btn.g{background:var(--bg-3);color:var(--ink-2)}
-  .btn.g:hover{background:var(--line-2);transform:translateY(-1px)}
+  /* ===== 공통 섹션 ===== */
+  section{padding:104px 0}
+  .band{background:var(--bg-2)}
+  @media(max-width:720px){section{padding:68px 0}}
+  .sec-head{margin-bottom:44px;max-width:760px}
+  .eyebrow{display:inline-block;background:var(--acc-soft);color:var(--acc-2);
+    font-size:.72rem;font-weight:700;letter-spacing:.1em;padding:5px 11px;border-radius:7px;
+    margin-bottom:18px}
+  .sec-title{font-size:clamp(1.55rem,3vw,2.1rem);font-weight:800;line-height:1.42;letter-spacing:-.035em}
+  .sec-title .hl{color:var(--acc)}
+  .sec-sub{color:var(--sub);margin-top:16px;font-size:1rem;line-height:1.78;max-width:60ch}
 
-  .statband{border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;padding:34px 0}
-  @media(max-width:820px){.stats{grid-template-columns:repeat(2,1fr);gap:26px}}
-  .stat .n{font-size:clamp(1.5rem,3.4vw,1.9rem);font-weight:800;letter-spacing:-.04em;line-height:1.1;color:var(--blue-deep)}
-  .stat .n .u{font-size:.7em;margin-left:2px;font-weight:700}
-  .stat .l{font-size:.78rem;color:var(--muted);margin-top:9px;font-weight:500;line-height:1.6}
+  /* ===== 히어로 ===== */
+  header{padding:158px 0 86px;position:relative;overflow:hidden}
+  header::before{content:"";position:absolute;left:-10%;top:-30%;width:70%;height:120%;
+    background:radial-gradient(ellipse at center,rgba(91,157,255,.13),transparent 62%);
+    pointer-events:none}
+  @media(max-width:720px){header{padding:112px 0 56px}}
+  .hero-in{position:relative}
+  h1.hero{font-size:clamp(1.9rem,4.6vw,3.15rem);font-weight:800;line-height:1.34;letter-spacing:-.045em}
+  h1.hero .hl{color:var(--acc)}
+  .hero-sub{color:var(--sub);margin-top:26px;font-size:clamp(1rem,1.5vw,1.09rem);
+    line-height:1.82;max-width:58ch}
+  .hero-sub b{color:#fff}
+  .hero-en{color:var(--dim);font-size:.88rem;line-height:1.7;margin-top:14px;max-width:58ch}
+  .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:38px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.94rem;
+    padding:14px 24px;border-radius:11px;transition:filter .16s,background .16s,transform .16s}
+  .btn.p{background:var(--acc);color:var(--acc-ink)}
+  .btn.p:hover{filter:brightness(1.1);transform:translateY(-1px)}
+  .btn.g{background:rgba(255,255,255,.07);color:var(--ink);border:1px solid var(--line-2)}
+  .btn.g:hover{background:rgba(255,255,255,.12)}
 
-  section{padding:86px 0}
-  .sec-head{margin-bottom:42px;max-width:760px}
-  .sec-tag{display:inline-flex;align-items:center;gap:9px;font-size:.73rem;font-weight:800;color:var(--blue-deep);letter-spacing:.15em;margin-bottom:15px}
-  .sec-tag::before{content:"";width:20px;height:2px;border-radius:2px;background:var(--blue-solid)}
-  .sec-title{font-size:clamp(1.5rem,3.5vw,2.1rem);font-weight:800;letter-spacing:-.045em;line-height:1.34}
-  .sec-desc{color:var(--sub);margin-top:15px;font-size:.99rem;max-width:660px;font-weight:500;line-height:1.72}
-  .sec-desc b{color:var(--ink-2);font-weight:700}
+  /* ===== 핵심 수치 ===== */
+  .statband{padding:0 0 96px}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  @media(max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.stats{grid-template-columns:1fr}}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px 22px}
+  .stat .n{font-size:2.05rem;font-weight:800;letter-spacing:-.045em;color:var(--acc);line-height:1.15;
+    font-variant-numeric:tabular-nums}
+  .stat .n .u{font-size:.92rem;font-weight:700;margin-left:3px;color:var(--acc-2)}
+  .stat .l{color:var(--sub);font-size:.84rem;line-height:1.62;margin-top:10px}
 
-  .about{background:var(--bg-2)}
-  .about-grid{display:grid;grid-template-columns:1.16fr .84fr;gap:32px;align-items:start}
-  @media(max-width:860px){.about-grid{grid-template-columns:1fr;gap:20px}}
-  .about-body p{color:var(--sub);margin-bottom:16px;font-weight:500;line-height:1.85;font-size:1rem}
+  /* ===== 소개 ===== */
+  .about-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:32px;align-items:start}
+  @media(max-width:900px){.about-grid{grid-template-columns:1fr}}
+  .about-body p{color:var(--sub);margin-bottom:18px;line-height:1.86}
   .about-body p:last-child{margin-bottom:0}
-  .about-body b{color:var(--ink);font-weight:700}
-  .card{background:var(--card);border-radius:18px;padding:24px;box-shadow:var(--sh-1)}
-  .card h4{font-size:.7rem;color:var(--muted);font-weight:800;margin-bottom:14px;letter-spacing:.11em}
-  .kv{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid var(--line);font-size:.89rem}
-  .kv:last-child{border-bottom:0}
-  .kv .k{color:var(--muted);font-weight:600;flex-shrink:0}
-  .kv .v{font-weight:700;text-align:right;color:var(--ink-2);line-height:1.5}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px 24px}
+  .card h4{font-size:.7rem;font-weight:700;letter-spacing:.14em;color:var(--dim);margin-bottom:16px}
+  .kv{display:grid;grid-template-columns:62px 1fr;gap:12px;padding:10px 0;
+    border-top:1px solid var(--line);font-size:.87rem}
+  .kv:first-of-type{border-top:0}
+  .kv .k{color:var(--dim);font-weight:600}
+  .kv .v{color:var(--ink);line-height:1.6}
 
-  .ways{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-  @media(max-width:760px){.ways{grid-template-columns:1fr}}
-  .way{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;transition:box-shadow .2s,transform .2s cubic-bezier(.2,.8,.2,1)}
-  .way:hover{box-shadow:var(--sh-1);transform:translateY(-2px)}
-  .way .wn{font-size:.84rem;font-weight:800;color:var(--blue-deep);font-family:var(--mono);margin-bottom:10px}
-  .way h3{font-size:1rem;font-weight:800;margin-bottom:9px;letter-spacing:-.028em;line-height:1.45}
-  .way p{font-size:.9rem;color:var(--sub);font-weight:500;line-height:1.75}
+  /* ===== 경력 ===== */
+  .career{display:grid;gap:12px}
+  .job{display:grid;grid-template-columns:184px 1fr;gap:26px;
+    background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px 26px}
+  @media(max-width:760px){.job{grid-template-columns:1fr;gap:14px;padding:22px 20px}}
+  .jperiod{color:var(--dim);font-size:.83rem;font-weight:600;line-height:1.7;padding-top:3px}
+  .co{font-size:1.08rem;font-weight:700}
+  .role{color:var(--acc-2);font-size:.88rem;font-weight:600;margin-top:4px}
+  .job ul{list-style:none;margin-top:14px;display:grid;gap:8px}
+  .job li{color:var(--sub);font-size:.92rem;line-height:1.72;padding-left:16px;position:relative}
+  .job li::before{content:"";position:absolute;left:0;top:.72em;width:5px;height:5px;
+    border-radius:50%;background:var(--acc);opacity:.8}
 
-  .career{display:flex;flex-direction:column;gap:10px}
-  .job{display:grid;grid-template-columns:150px minmax(0,1fr);gap:24px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 28px;transition:box-shadow .2s,border-color .2s}
-  .job:hover{box-shadow:var(--sh-1);border-color:var(--line-2)}
-  @media(max-width:680px){.job{grid-template-columns:1fr;gap:10px;padding:22px}}
-  .job .jperiod{font-size:.82rem;font-weight:600;color:var(--muted);padding-top:5px;line-height:1.65;letter-spacing:-.01em}
-  .job .co{font-size:1.05rem;font-weight:800;letter-spacing:-.03em}
-  .job .role{display:block;font-size:.86rem;color:var(--blue-deep);font-weight:700;margin:6px 0 12px}
-  .job ul{list-style:none;display:flex;flex-direction:column;gap:8px}
-  .job li{position:relative;padding-left:15px;font-size:.9rem;color:var(--sub);font-weight:500;line-height:1.7}
-  .job li::before{content:"";position:absolute;left:2px;top:.68em;width:5px;height:5px;border-radius:50%;background:var(--faint)}
-  .job li b{color:var(--ink);font-weight:700}
+  /* ===== 프로젝트 ===== */
+  .proj-list{display:grid;gap:14px}
+  .proj{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;
+    transition:border-color .2s}
+  .proj:hover{border-color:var(--line-2)}
+  .proj.open{border-color:var(--acc-line)}
+  .proj-head{display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:center;
+    padding:26px 28px;cursor:pointer;user-select:none}
+  @media(max-width:720px){
+    .proj-head{grid-template-columns:1fr;gap:12px;padding:20px}
+    .proj-num{justify-self:start}
+    .proj-toggle{justify-self:start}
+    .proj-title{font-size:1.1rem}
+  }
+  .proj-num{font-size:.76rem;font-weight:800;letter-spacing:.06em;color:var(--acc);
+    background:var(--acc-soft);border-radius:8px;padding:6px 9px}
+  .chip-row{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:9px}
+  .chip{font-size:.72rem;font-weight:700;color:var(--acc-2);background:var(--acc-soft);
+    padding:4px 10px;border-radius:6px}
+  .chip.d{color:var(--dim);background:rgba(255,255,255,.055)}
+  .proj-title{font-size:1.3rem;font-weight:700;letter-spacing:-.032em;line-height:1.46}
+  .proj-sub{color:var(--sub);font-size:.9rem;line-height:1.68;margin-top:7px;max-width:62ch}
+  .proj-toggle{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;
+    font-size:.8rem;font-weight:700;color:var(--sub);
+    border:1px solid var(--line-2);border-radius:9px;padding:8px 13px;transition:all .18s}
+  .proj-toggle i{font-style:normal;font-size:1.05rem;line-height:1;transition:transform .25s}
+  .proj:hover .proj-toggle{color:var(--ink);border-color:rgba(255,255,255,.28)}
+  .proj.open .proj-toggle{background:var(--acc);color:var(--acc-ink);border-color:var(--acc)}
+  .proj.open .proj-toggle i{transform:rotate(45deg)}
+  .proj.open .proj-toggle .t-open{display:none}
+  .proj-toggle .t-close{display:none}
+  .proj.open .proj-toggle .t-close{display:inline}
+  .proj-body{max-height:0;overflow:hidden;transition:max-height .42s cubic-bezier(.3,.8,.3,1)}
+  .proj-in{padding:4px 28px 32px;border-top:1px solid var(--line);margin-top:0}
+  @media(max-width:720px){.proj-in{padding:4px 20px 26px}}
 
-  .proj-list{display:flex;flex-direction:column;gap:12px}
-  .proj{background:var(--card);border:1px solid var(--line-2);border-radius:20px;overflow:hidden;transition:box-shadow .25s,border-color .25s}
-  .proj:hover{box-shadow:var(--sh-1)}
-  .proj.open{border-color:rgba(49,130,246,.3);box-shadow:var(--sh-2)}
-  .proj-head{display:flex;gap:16px;align-items:flex-start;padding:26px 28px;cursor:pointer}
-  .proj-emoji{width:40px;flex-shrink:0;font-family:var(--mono);font-size:1.08rem;font-weight:800;color:var(--blue-deep);letter-spacing:-.04em;padding-top:2px}
-  .proj-main{flex:1;min-width:0}
-  .chip-row{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-bottom:10px}
-  .chip{display:inline-flex;font-size:.74rem;font-weight:600;color:var(--muted)}
-  .chip+.chip::before{content:"·";margin-right:7px;color:var(--faint)}
-  .chip.d{font-family:var(--mono);letter-spacing:-.03em}
-  .proj-title{font-size:1.1rem;font-weight:800;letter-spacing:-.032em;line-height:1.45}
-  .proj-sub{font-size:.885rem;color:var(--muted);margin-top:6px;font-weight:500;line-height:1.65}
-  .proj-toggle{width:30px;height:30px;border-radius:50%;background:var(--bg-3);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--sub);font-size:1rem;transition:transform .3s cubic-bezier(.2,.8,.2,1),background .2s,color .2s;margin-top:4px}
-  .proj:hover .proj-toggle{background:var(--line-2)}
-  .proj.open .proj-toggle{transform:rotate(45deg);background:var(--blue-solid);color:#fff}
-  .proj-body{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1)}
-  .proj-in{padding:4px 28px 32px}
-  @media(max-width:640px){.proj-head{padding:22px 20px}.proj-in{padding:4px 20px 26px}}
+  .blk{padding-top:28px}
+  .bl-lab{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.06em;
+    color:var(--acc);background:var(--acc-soft);padding:5px 10px;border-radius:7px;margin-bottom:14px}
+  .blk p{color:var(--sub);line-height:1.84;font-size:.95rem}
+  .blk ul{list-style:none;display:grid;gap:9px}
+  .blk li{color:var(--sub);font-size:.94rem;line-height:1.76;padding-left:17px;position:relative}
+  .blk li>b:first-child{margin-right:5px}
+  .blk li::before{content:"";position:absolute;left:0;top:.74em;width:5px;height:5px;
+    border-radius:50%;background:var(--acc);opacity:.75}
+  .psum{padding:0 28px 26px}
+  .pctx{color:var(--dim);font-size:.93rem;line-height:1.76;margin:0 0 18px;max-width:74ch}
+  .pgrid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+  .pcell{padding:19px 24px 2px 0}
+  .pcell + .pcell{padding-left:24px;border-left:1px solid var(--line)}
+  .pk{display:block;font-size:.71rem;font-weight:800;letter-spacing:.06em;color:var(--dim);margin-bottom:10px}
+  .pcell.d .pk{color:var(--acc)}
+  .pcell p{margin:0;font-size:.945rem;line-height:1.74;color:var(--sub)}
+  .pcell.d p{color:var(--ink)}
+  @media(max-width:860px){
+    .psum{padding:0 20px 22px}
+    .pgrid{grid-template-columns:1fr}
+    .pcell{padding:17px 0 0}
+    .pcell + .pcell{padding-left:0;border-left:0;border-top:1px solid var(--line);padding-top:17px}
+  }
+  .sub-h{font-size:.79rem;font-weight:800;letter-spacing:.04em;color:var(--dim);margin:28px 0 13px}
+  ul + .figs,ul + .flow,ul + .tbl-wrap,ul + .subnote,ul + .sub-h{margin-top:20px}
+  .figs + .sub-h,.flow + .sub-h,.tcap + .sub-h,.tbl-wrap + .sub-h{margin-top:28px}
+  .dec + .subnote{margin-top:22px}
 
-  .blk{margin-top:26px;padding-top:26px;border-top:1px solid var(--line)}
-  .blk:first-child{border-top:0;padding-top:6px;margin-top:0}
-  .bl-lab{display:inline-flex;align-items:center;gap:8px;font-size:.75rem;font-weight:800;margin-bottom:14px;color:var(--blue-deep);letter-spacing:.1em}
-  .bl-lab::before{content:"";width:14px;height:2px;border-radius:2px;background:var(--blue-solid)}
-  .blk>p{font-size:.93rem;color:var(--sub);font-weight:500;line-height:1.85;margin-bottom:12px}
-  .blk>p:last-child{margin-bottom:0}
-  .blk ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-  .blk ul li{position:relative;padding-left:19px;font-size:.92rem;color:var(--sub);font-weight:500;line-height:1.78}
-  .blk ul li::before{content:"";position:absolute;left:3px;top:.76em;width:5px;height:5px;border-radius:50%;background:var(--faint)}
-  .blk ul li b{color:var(--ink);font-weight:700}
-  .blk code{font-family:var(--mono);font-size:.84em;background:var(--bg-3);padding:2px 6px;border-radius:5px;color:var(--ink-2);letter-spacing:-.02em}
+  .role-line{margin-top:0;margin-bottom:16px;background:rgba(255,255,255,.04);border:1px solid var(--line);
+    border-radius:11px;padding:12px 15px;color:var(--dim);font-size:.86rem;line-height:1.66}
+  .role-line b{color:var(--acc-2);font-weight:700;margin-right:5px}
 
-  .role-line{background:var(--bg-2);border-radius:12px;padding:14px 17px;font-size:.89rem;color:var(--sub);font-weight:500;line-height:1.75}
-  .role-line b{color:var(--ink);font-weight:700}
-
-  .dec{background:var(--bg-2);border-radius:14px;padding:18px 20px;margin-bottom:9px}
+  .dec{background:var(--card-2);border:1px solid var(--line);border-left:3px solid var(--acc);
+    border-radius:0 13px 13px 0;padding:18px 20px;margin-bottom:11px}
   .dec:last-child{margin-bottom:0}
-  .dec .dh{font-size:.94rem;font-weight:800;line-height:1.62;margin-bottom:9px;letter-spacing:-.028em}
-  .dec p{font-size:.9rem;color:var(--sub);font-weight:500;line-height:1.82;margin:0}
-  .dec p+p{margin-top:8px}
-  .dec p b{color:var(--ink-2);font-weight:700}
+  .dec + ul,.dec + .flow,.dec + .tbl-wrap,.dec + .figs,.dec + .subnote{margin-top:22px}
+  .dh{font-weight:700;font-size:1rem;line-height:1.56;margin-bottom:8px;letter-spacing:-.02em}
+  .dec p{font-size:.92rem}
 
-  .tbl-wrap{overflow-x:auto;border:1px solid var(--line-2);border-radius:14px;margin-top:4px;-webkit-overflow-scrolling:touch}
-  table{width:100%;border-collapse:collapse;font-size:.845rem;min-width:520px}
-  th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.62}
-  th{background:var(--bg-2);font-weight:800;color:var(--ink-2);font-size:.74rem;white-space:nowrap}
-  td{color:var(--sub);font-weight:500}
-  td b{color:var(--ink);font-weight:700}
-  tbody tr:last-child td{border-bottom:0}
-  tbody tr:hover td{background:var(--blue-weak-2)}
-  .tcap{font-size:.8rem;color:var(--muted);margin-top:10px;font-weight:500;line-height:1.62}
+  .subnote{margin-top:15px;color:var(--dim);font-size:.87rem;line-height:1.72;
+    background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:11px;padding:13px 15px}
+  .subnote b{color:var(--acc-2);margin-right:5px}
+  .tcap{color:var(--dim);font-size:.8rem;margin-top:9px;line-height:1.6}
 
-  .charts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-  @media(max-width:760px){.charts{grid-template-columns:1fr}}
-  .chart{background:var(--card);border:1px solid var(--line-2);border-radius:14px;padding:18px 18px 16px}
-  .chart .ct{font-size:.82rem;font-weight:800;letter-spacing:-.025em}
-  .chart .cs{font-size:.72rem;color:var(--muted);font-weight:600;margin-top:3px;margin-bottom:16px}
-  .brow{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:9px;align-items:center;margin-bottom:8px}
-  .brow:last-child{margin-bottom:0}
-  .brow .bl{font-size:.7rem;font-weight:700;color:var(--muted);white-space:nowrap}
-  .brow .track{height:14px;background:var(--bg-3);border-radius:3px;overflow:hidden}
-  .brow .bar{height:100%;border-radius:0 4px 4px 0;width:0;transition:width 1.1s cubic-bezier(.22,.9,.3,1)}
-  .brow .bar.before{background:var(--gray-bar)}
-  .brow .bar.after{background:var(--blue-solid)}
-  .brow .bv{font-size:.78rem;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.03em;white-space:nowrap}
-  .brow.b-after .bv{color:var(--blue-deep)}
-  .charts.ref{grid-template-columns:repeat(2,1fr);margin-top:10px}
-  @media(max-width:760px){.charts.ref{grid-template-columns:1fr}}
-  .charts.ref .chart{background:transparent;border-style:dashed}
-  .charts.ref .ct{font-size:.78rem;color:var(--sub)}
-  .charts.ref .bv{color:var(--sub)}
-  .charts.ref .b-after .bv{color:var(--sub)}
-  .charts.ref .bar.after{background:#9DBEEE}
-  .refhead{font-size:.71rem;font-weight:800;letter-spacing:.08em;color:var(--muted);margin-top:16px}
-  .chart.lead{border-color:rgba(34,105,220,.3)}
-  .chart.lead .ct{font-size:.95rem}
-  .chart.lead .brow{grid-template-columns:52px minmax(0,1fr) auto}
-  .chart.lead .track{height:20px}
-  .chart.lead .bv{font-size:1.05rem}
-  .subnote{font-size:.85rem;color:var(--sub);font-weight:500;line-height:1.8;margin-top:12px}
-  .subnote b{color:var(--ink-2);font-weight:700}
-  .chart .cn{font-size:.71rem;color:var(--muted);font-weight:600;margin-top:13px;padding-top:11px;border-top:1px solid var(--line);line-height:1.55}
+  /* 표 */
+  .tbl-wrap{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--card-2)}
+  table{width:100%;border-collapse:collapse;font-size:.89rem}
+  th{background:rgba(255,255,255,.05);color:var(--dim);font-weight:700;font-size:.78rem;
+    letter-spacing:.03em;text-align:left;padding:12px 15px;border-bottom:1px solid var(--line)}
+  td{padding:13px 15px;border-bottom:1px solid var(--line);color:var(--sub);line-height:1.6}
+  tr:last-child td{border-bottom:0}
+  td b{color:var(--ink)}
 
-  .flow{background:var(--bg-2);border-radius:16px;padding:22px}
-  .flow-h{font-size:.78rem;font-weight:800;color:var(--ink-2);margin-bottom:16px;letter-spacing:-.02em}
-  .branch{display:grid;grid-template-columns:132px 20px minmax(0,1fr);align-items:center}
-  @media(max-width:700px){.branch{grid-template-columns:1fr;gap:12px}.branch .bstem{display:none}}
-  .broot{background:var(--ink);color:#fff;border-radius:12px;padding:16px 14px;text-align:center}
-  .broot .brt{font-size:.86rem;font-weight:800;letter-spacing:-.02em}
-  .broot .brd{font-size:.72rem;opacity:.72;margin-top:5px;font-weight:600;line-height:1.5}
-  .bstem{height:100%;position:relative}
-  .bstem::before{content:"";position:absolute;left:0;right:0;top:50%;height:2px;background:var(--line-2)}
-  .bleaves{display:flex;flex-direction:column;gap:6px;border-left:2px solid var(--line-2);padding-left:14px}
-  @media(max-width:700px){.bleaves{border-left:0;padding-left:0}}
-  .leaf{background:var(--card);border:1px solid var(--line-2);border-radius:10px;padding:11px 14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;position:relative}
-  .leaf::before{content:"";position:absolute;left:-14px;top:50%;width:12px;height:2px;background:var(--line-2)}
-  @media(max-width:700px){.leaf::before{display:none}}
-  .leaf .lt{font-size:.83rem;font-weight:800;min-width:96px;letter-spacing:-.02em}
-  .leaf .ld{font-size:.77rem;color:var(--sub);font-weight:500;flex:1;min-width:130px;line-height:1.55}
-  .pill{font-size:.74rem;font-weight:700;white-space:nowrap}
-  .pill.auto{color:var(--blue-deep)}
-  .pill.manual{color:var(--muted)}
-  .ladder{display:flex;align-items:flex-end;gap:6px;height:132px}
-  .rung{flex:1;background:var(--blue-weak);border-radius:8px 8px 0 0;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding-bottom:9px;position:relative}
-  .rung .rn{font-size:.7rem;font-weight:800;color:var(--blue-deep);text-align:center;line-height:1.3}
-  .rung .rp{position:absolute;top:-21px;left:0;right:0;text-align:center;font-size:.66rem;font-weight:800;color:var(--muted);font-family:var(--mono)}
-  .rung.top{background:var(--blue-solid)}
-  .rung.top .rn{color:#fff}
-  .flow-n{font-size:.79rem;color:var(--muted);font-weight:600;margin-top:14px;line-height:1.7}
-  .flow-n b{color:var(--ink-2);font-weight:700}
-  @media(max-width:600px){.ladder{height:104px}.rung .rn{font-size:.6rem}}
+  /* 차트 — 값은 왼쪽, 막대 안에 라벨 */
+  .res{background:var(--card-2);border:1px solid var(--line);border-radius:15px;padding:22px}
+  .rh{font-size:.9rem;font-weight:700;color:var(--ink);margin-bottom:16px}
+  .chart{margin-bottom:6px}
+  .ct{font-size:.95rem;font-weight:700}
+  .cs{color:var(--dim);font-size:.8rem;line-height:1.55;margin-top:4px}
+  .brow{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:center;margin-top:12px}
+  .bv{text-align:right;font-size:1.32rem;font-weight:800;letter-spacing:-.03em;color:var(--dim);
+    white-space:nowrap}
+  .brow.b-after .bv{color:var(--acc)}
+  .bv i{font-style:normal;font-size:.72em;margin-left:1px}
+  .track{position:relative;height:38px;display:flex;align-items:center}
+  .track::before{content:"";position:absolute;left:0;right:0;top:50%;
+    border-top:1px dotted rgba(255,255,255,.14)}
+  .bar{position:relative;height:38px;width:0;border-radius:9px;display:flex;align-items:center;
+    justify-content:flex-end;padding:0 14px;transition:width 1s cubic-bezier(.22,.8,.25,1);
+    font-size:.82rem;font-weight:700;white-space:nowrap;overflow:hidden}
+  .bar.before{background:#3A3E44;color:#C2C7CE}
+  .bar.after{background:var(--acc);color:var(--acc-ink)}
+  .cn{color:var(--dim);font-size:.82rem;margin-top:12px}
+  .refhead{margin-top:24px;padding-top:18px;border-top:1px solid var(--line);
+    color:var(--dim);font-size:.82rem;font-weight:700;margin-bottom:6px}
+  .charts{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:620px){.tbl-wrap{overflow-x:auto}table{min-width:420px}}
+  @media(max-width:760px){.charts{grid-template-columns:1fr}
+    .brow{grid-template-columns:78px 1fr;gap:10px}.bv{font-size:1.1rem}}
+  .res.out ul{gap:10px}
 
-  .figs{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:4px}
-  .figs.figs-3{grid-template-columns:repeat(3,1fr)}
-  .figs.figs-1{grid-template-columns:1fr}
-  @media(max-width:700px){.figs,.figs.figs-3{grid-template-columns:1fr}}
-  .fig{border:1px solid var(--line-2);border-radius:14px;overflow:hidden;background:var(--card)}
-  .fig img{width:100%;display:block;cursor:zoom-in}
-  .fig figcaption{font-size:.775rem;color:var(--muted);font-weight:600;padding:12px 14px;line-height:1.65}
-  .fig figcaption b{color:var(--ink-2);font-weight:700}
-  .lb{position:fixed;inset:0;z-index:200;background:rgba(15,20,28,.86);display:none;align-items:center;justify-content:center;padding:28px;cursor:zoom-out;backdrop-filter:blur(3px)}
-  .lb.on{display:flex}
-  .lb img{max-width:100%;max-height:100%;border-radius:10px;background:#fff}
-  .lb .lbx{position:absolute;top:18px;right:22px;color:#fff;font-size:1.6rem;font-weight:300;line-height:1;opacity:.75}
-
-  .res-grid{display:flex;flex-direction:column;gap:10px}
-  .res{border-radius:14px;padding:17px 19px}
-  .res .rh{font-size:.71rem;font-weight:800;letter-spacing:.08em;margin-bottom:11px;color:var(--muted)}
-  .res.out{background:var(--bg-2)}
-  .res.num{background:var(--blue-weak-2);border:1px solid #DBEAFE}
-  .res.num .rh{color:var(--blue-deep)}
-  .res ul li{font-size:.91rem}
-  .res ul li::before{background:var(--blue-solid);opacity:.45}
-
-  .limit{background:var(--bg-2);border-radius:14px;padding:17px 19px;border-left:3px solid var(--line-2)}
-  .limit ul li{font-size:.91rem}
-
-  .caveat{font-size:.88rem;color:var(--sub);font-weight:500;line-height:1.8;background:var(--amber-weak);border:1px solid var(--amber-line);border-radius:12px;padding:14px 16px;margin-top:12px}
-  .caveat b{color:#7A5200;font-weight:800}
-  details.more{margin-top:9px;border-top:1px solid var(--amber-line);padding-top:9px}
-  details.more.solo{margin-top:14px;border:1px solid var(--line-2);border-radius:12px;padding:12px 16px;background:var(--card)}
-  details.more.solo summary{color:var(--sub)}
-  details.more.solo .mb{color:var(--sub)}
-  details.more.solo code{background:var(--bg-3);color:var(--ink-2)}
-  details.more summary{font-size:.8rem;font-weight:700;color:var(--amber);cursor:pointer;list-style:none;display:flex;align-items:center;gap:6px}
+  details.more{margin-top:16px;border:1px solid var(--line);border-radius:11px;
+    background:rgba(255,255,255,.03)}
+  details.more summary{cursor:pointer;padding:12px 15px;font-size:.85rem;font-weight:700;
+    color:var(--sub);list-style:none}
   details.more summary::-webkit-details-marker{display:none}
-  details.more summary::before{content:"＋";font-size:.85rem;line-height:1}
-  details.more[open] summary::before{content:"－"}
-  details.more .mb{font-size:.84rem;color:#7A5200;line-height:1.8;margin-top:9px;font-weight:500}
-  details.more .mb p+p{margin-top:7px}
-  details.more code{background:rgba(255,255,255,.7);color:#7A5200}
+  details.more summary::before{content:"＋ ";color:var(--acc)}
+  details.more[open] summary::before{content:"－ "}
+  details.more .mb{padding:0 15px 15px}
+  details.more .mb p{font-size:.85rem;color:var(--dim);margin-bottom:9px}
+  details.more .mb b{margin-right:5px}
+  details.more .mb p:last-child{margin-bottom:0}
 
-  .retro{background:var(--bg-2);border-radius:14px;padding:17px 19px;border-left:3px solid var(--blue-solid)}
-  .retro p{font-size:.91rem;color:var(--sub);font-weight:500;line-height:1.85;margin:0}
-  .retro p b{color:var(--ink);font-weight:700}
+  /* 다이어그램 */
+  .flow{background:var(--card-2);border:1px solid var(--line);border-radius:15px;padding:22px}
+  .flow-h{font-size:.92rem;font-weight:700;margin-bottom:18px}
+  .flow-n{color:var(--dim);font-size:.85rem;line-height:1.66;margin-top:16px;
+    padding-top:14px;border-top:1px solid var(--line)}
+  .branch{display:grid;gap:12px}
+  .broot{background:var(--acc-soft);border:1px solid var(--acc-line);border-radius:11px;
+    padding:13px 16px;text-align:center}
+  .brt{font-weight:700;font-size:.93rem;color:var(--acc-2)}
+  .brd{color:var(--dim);font-size:.8rem;line-height:1.55;margin-top:3px}
+  .bstem{height:14px;border-left:1px dashed var(--line-2);width:0;margin:0 auto}
+  .bleaves{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+  @media(max-width:660px){.bleaves{grid-template-columns:1fr}}
+  .leaf{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:11px;
+    padding:13px 15px;display:grid;gap:5px}
+  .lt{font-weight:700;font-size:.9rem}
+  .ld{color:var(--dim);font-size:.81rem;line-height:1.55}
+  .pill{justify-self:start;font-size:.7rem;font-weight:700;padding:3px 9px;border-radius:6px}
+  .pill.auto{background:var(--acc-soft);color:var(--acc-2)}
+  .pill.manual{background:rgba(255,255,255,.08);color:var(--sub)}
 
-  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px}
-  .tag{font-size:.73rem;font-weight:700;color:var(--muted);background:var(--bg-3);padding:5px 10px;border-radius:6px}
+  .ladder{display:grid;grid-template-columns:repeat(6,1fr);gap:9px;align-items:end;height:172px}
+  .rung{background:linear-gradient(180deg,rgba(91,157,255,.30),rgba(91,157,255,.10));
+    border:1px solid var(--acc-line);border-radius:10px 10px 0 0;display:flex;align-items:flex-start;
+    justify-content:center;padding-top:9px}
+  .rung.top{background:linear-gradient(180deg,var(--acc),rgba(91,157,255,.30));border-color:var(--acc)}
+  .rn{font-size:.73rem;font-weight:700;color:var(--ink);text-align:center;line-height:1.3}
+  .rung.top .rn{color:var(--acc-ink)}
+  @media(max-width:640px){.ladder{height:136px}.rn{font-size:.63rem}}
 
-  .etc{background:var(--card);border:1px solid var(--line-2);border-radius:16px;padding:6px 24px}
-  .etc .row{display:grid;grid-template-columns:186px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
-  .etc .row:last-child{border-bottom:0}
-  @media(max-width:760px){.etc .row{grid-template-columns:1fr;gap:6px}}
-  .etc .en{font-size:.92rem;font-weight:800;line-height:1.5;letter-spacing:-.025em}
-  .etc .ep{font-size:.79rem;color:var(--muted);font-weight:500;margin-top:5px;letter-spacing:-.01em}
-  .etc .ed{font-size:.88rem;color:var(--sub);font-weight:500;line-height:1.78;min-width:0}
-  .etc .ed b{color:var(--ink);font-weight:700}
+  /* 이미지 */
+  .figs{display:grid;gap:12px}
+  .figs-3{grid-template-columns:repeat(3,1fr)}
+  .figs-1{grid-template-columns:1fr}
+  .figs-2{grid-template-columns:repeat(2,1fr);align-items:start}
+  .fig.phone{background:var(--card-2)}
+  .fig.phone img{max-height:540px;width:auto;margin:0 auto;display:block}
+  @media(max-width:760px){.figs-3,.figs-2{grid-template-columns:1fr}}
+  .fig{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:13px;
+    overflow:hidden}
+  .fig img{width:100%;display:block;cursor:zoom-in;background:#0E0F10}
+  .fig figcaption{font-size:.78rem;color:var(--dim);padding:9px 12px;line-height:1.5;
+    border-top:1px solid var(--line)}
+  .fig figcaption b{color:var(--sub)}
 
-  .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  @media(max-width:760px){.edu-grid{grid-template-columns:1fr}}
-  .edu{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
-  .edu .ed-h{font-size:.99rem;font-weight:800;letter-spacing:-.03em}
-  .edu .ed-m{font-size:.82rem;color:var(--muted);font-weight:500;margin:5px 0 11px}
-  .edu p{font-size:.88rem;color:var(--sub);font-weight:500;line-height:1.75}
-  .edu ul{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:7px}
-  .edu li{position:relative;padding-left:14px;font-size:.86rem;color:var(--sub);font-weight:500;line-height:1.68}
-  .edu li::before{content:"";position:absolute;left:2px;top:.68em;width:4px;height:4px;border-radius:50%;background:var(--faint)}
-  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
-  .chips span{font-size:.76rem;font-weight:600;color:var(--sub);background:var(--bg-3);border-radius:7px;padding:5px 10px}
+  .tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px}
+  .tag{font-size:.75rem;font-weight:600;color:var(--dim);background:rgba(255,255,255,.05);
+    border:1px solid var(--line);padding:4px 10px;border-radius:7px}
 
-  .note{font-size:.79rem;color:var(--muted);background:var(--bg-2);border-radius:14px;padding:16px 18px;margin-top:20px;line-height:1.78;font-weight:500}
+  /* ===== Additional Work ===== */
+  .etc{display:grid;gap:0;border-top:1px solid var(--line)}
+  .row{display:grid;grid-template-columns:260px 1fr;gap:28px;padding:24px 0;
+    border-bottom:1px solid var(--line)}
+  @media(max-width:820px){.row{grid-template-columns:1fr;gap:10px}}
+  .en{font-weight:700;font-size:1rem;line-height:1.5}
+  .ep{color:var(--acc-2);font-size:.82rem;font-weight:600;margin-top:4px}
+  .ed{color:var(--sub);font-size:.93rem;line-height:1.8}
+  .note{margin-top:26px;color:var(--dim);font-size:.82rem;line-height:1.7}
 
-  .contact{padding:104px 0;background:linear-gradient(135deg,#12448F 0%,#1B4FA8 38%,#2E7BF6 100%);color:#fff}
-  @media(max-width:760px){.contact{padding:76px 0}}
-  .contact h2{font-size:clamp(1.6rem,3.8vw,2.35rem);font-weight:800;letter-spacing:-.045em;margin-bottom:16px;color:#fff}
-  .contact p{color:rgba(255,255,255,.9);max-width:640px;font-weight:500;margin-bottom:30px;line-height:1.78}
-  .contact .btn.p{background:#fff;color:var(--blue-deep);box-shadow:0 12px 28px rgba(6,26,64,.22)}
-  .contact .btn.p:hover{background:#fff;transform:translateY(-2px);box-shadow:0 18px 36px rgba(6,26,64,.28)}
-  .contact .btn.g{background:transparent;border:1.5px solid rgba(255,255,255,.55);color:#fff}
-  .contact .btn.g:hover{background:rgba(255,255,255,.14);border-color:#fff;transform:translateY(-2px)}
-  footer{border-top:1px solid var(--line-2);padding:26px 0;color:var(--muted);font-size:.81rem;font-weight:500}
+  /* ===== 일하는 방식 ===== */
+  .ways{border-top:1px solid var(--line)}
+  .way{display:grid;grid-template-columns:50px minmax(0,15rem) minmax(0,1fr);gap:0 28px;
+    align-items:start;padding:24px 0;border-bottom:1px solid var(--line)}
+  .wn{font-size:.88rem;font-weight:700;color:var(--acc);padding-top:.32rem;
+    font-variant-numeric:tabular-nums;letter-spacing:.02em}
+  .way h3{font-size:1.32rem;font-weight:700;line-height:1.46;letter-spacing:-.032em}
+  .way p{color:var(--sub);font-size:.97rem;line-height:1.72;margin:0;padding-top:.3rem;max-width:46ch}
+  @media(max-width:900px){
+    .way{grid-template-columns:1fr;gap:7px;padding:22px 0}
+    .wn{padding-top:0}
+    .way h3{font-size:1.14rem}
+    .way p{padding-top:0;max-width:none}
+  }
 
-  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1)}
+  /* ===== 학력 ===== */
+  .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:820px){.edu-grid{grid-template-columns:1fr}}
+  .edu{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px 22px}
+  .ed-h{font-weight:700;font-size:1rem;line-height:1.5}
+  .ed-m{color:var(--acc-2);font-size:.82rem;font-weight:600;margin-top:4px;margin-bottom:11px}
+  .edu p{color:var(--sub);font-size:.9rem;line-height:1.78}
+  .edu ul{list-style:none;display:grid;gap:7px}
+  .edu li{color:var(--sub);font-size:.89rem;line-height:1.7;padding-left:16px;position:relative}
+  .edu li::before{content:"";position:absolute;left:0;top:.72em;width:5px;height:5px;
+    border-radius:50%;background:var(--acc);opacity:.75}
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chips span{font-size:.79rem;font-weight:600;color:var(--sub);background:rgba(255,255,255,.055);
+    border:1px solid var(--line);padding:5px 11px;border-radius:8px}
+
+  /* ===== 연락처 ===== */
+  .contact{background:linear-gradient(140deg,#16325F 0%,#1B2A4A 46%,#1A1C20 100%);
+    text-align:center;border-top:1px solid var(--line)}
+  .contact h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;letter-spacing:-.035em}
+  .contact p{color:#C3CCDA;margin-top:16px;line-height:1.82;font-size:1rem}
+  .contact .cta{justify-content:center;margin-top:30px}
+  footer{padding:30px 0;border-top:1px solid var(--line);color:var(--dim);font-size:.82rem;
+    text-align:center}
+
+  /* ===== 라이트박스 ===== */
+  .lb{position:fixed;inset:0;background:rgba(6,7,9,.94);z-index:120;display:none;
+    align-items:center;justify-content:center;padding:34px;cursor:zoom-out}
+  .lb.on{display:flex}
+  .lb img{max-width:100%;max-height:100%;border-radius:11px}
+  .lbx{position:absolute;right:26px;top:18px;font-size:1.9rem;color:#fff;line-height:1}
+
+  /* ===== 히어로 도입 ===== */
+  .ap{display:inline-block;overflow:hidden;padding-bottom:.16em;margin-bottom:-.16em}
+  .ap > i{display:inline-block;font-style:inherit;color:inherit;will-change:transform;
+    transform:translateY(120%);transition:transform .95s cubic-bezier(.16,1,.3,1)}
+  .hero-in.go .ap > i{transform:none}
+  .hero-fade{opacity:0;transform:translateY(14px);
+    transition:opacity .75s ease,transform .75s cubic-bezier(.16,1,.3,1)}
+  .hero-in.go .hero-fade{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    .ap > i{transform:none!important;transition:none}
+    .hero-fade{opacity:1!important;transform:none!important;transition:none}
+  }
+
+  /* ===== 등장 ===== */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
   .reveal.in{opacity:1;transform:none}
-  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.brow .bar{transition:none}}
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    .bar{transition:none}
+    html{scroll-behavior:auto}
+  }
 
-  @page{margin:12mm}
+  /* ===== 인쇄 ===== */
   @media print{
-    :root{--sh-1:none;--sh-2:none}
-    html{scroll-padding-top:0}
-    body{background:#fff;font-size:10.5pt;letter-spacing:-.01em}
-    nav,.toc,.progress,.proj-toggle,.cta,.nav-cta,.lb{display:none!important}
-    .reveal{opacity:1!important;transform:none!important}
+    @page{margin:0}
+    .wrap{padding:0 14mm}
+    body{background:var(--bg)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    #nav,.toc,.progress,.lb,.proj-toggle{display:none!important}
+    header{padding:0 0 24px!important}
+    header::before{display:none}
+    section{padding:22px 0!important;break-inside:auto}
     .proj-body{max-height:none!important;overflow:visible!important}
-    .proj{break-inside:auto;border:1px solid #E5E8EB!important;box-shadow:none!important;margin-bottom:8px}
-    .dec,.chart,.flow,.res,.caveat,.retro,.limit,.job,.way,.edu,.fig,.tbl-wrap,.card,.stat,.etc .row,.role-line{break-inside:avoid;page-break-inside:avoid}
-    .blk{break-inside:auto}
-    .sec-head,.bl-lab,.proj-head,.res .rh,.flow-h{break-after:avoid;page-break-after:avoid}
-    .charts{break-inside:avoid}
-    section{padding:20px 0!important;break-inside:auto}
-    header{padding:12px 0 24px!important}
-    .about,#projects{background:#fff!important}
-    .contact{background:#1B4FA8!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-    .stat,.way,.dec,.res,.retro,.flow,.res.out,.limit,.role-line{background:#F9FAFB!important}
-    .brow .bar{transition:none!important}
-    .wrap{max-width:100%;padding:0 4mm}
-    details.more{display:block}
-    a[href^="http"]::after{content:" ("attr(href)")";font-size:.72em;color:#8B95A1;font-weight:500}
+    .reveal{opacity:1!important;transform:none!important}
+    .ap > i{transform:none!important}
+    .hero-fade{opacity:1!important;transform:none!important}
+    .proj,.job,.way,.edu,.stat,.card{break-inside:avoid}
+    .sec-head,.bl-lab,.proj-head,.rh,.flow-h{break-after:avoid}
+    .bar{transition:none!important}
   }
 </style>
 </head>
@@ -367,10 +431,9 @@
   <a href="#about">소개</a>
   <a href="#career">경력</a>
   <a href="#projects">대표 프로젝트</a>
-  <a href="#p-search" class="sub">검색 UI/UX 개선</a>
-  <a href="#p-coach" class="sub">전문가 기능 범용화</a>
-  <a href="#p-grade" class="sub">커뮤니티 등급제</a>
-  <a href="#p-b2b" class="sub">B2B 웹 개편</a>
+  <a href="#p-coach" class="sub">전문가 인증·매칭 CMS 설정화</a>
+  <a href="#p-search" class="sub">검색창·검색 결과 화면 개선</a>
+  <a href="#p-hub" class="sub">주제 허브 · 서버 렌더링</a>
   <a href="#more">Additional Work</a>
   <a href="#how">일하는 방식</a>
   <a href="#education">학력 · 도구</a>
@@ -378,57 +441,46 @@
 </aside>
 
 <header id="top">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <span class="badge"><span class="d"></span> 프로덕트 기획자 / PM</span>
-      <h1 class="hero">사용자 경험과 운영의 복잡함을<br><span class="pt">함께 푸는</span> 프로덕트 기획자</h1>
-      <p class="hero-sub">B2B와 B2C 제품에서 <b>사용자가 쓰는 기능과 운영자가 쓰는 도구</b>를 함께 기획해 왔습니다. 요구가 서로 얽히면 어디까지 공통으로 두고 어디부터 따로 둘지 나누고, 개발 가능한 범위와 순서로 정리해 넘깁니다.</p>
-      <div class="cta">
-        <a href="#projects" class="btn p">대표 프로젝트 보기 →</a>
-        <a href="#career" class="btn g">경력</a>
-      </div>
-    </div>
-    <!-- 대표 그래픽 1개 — 부드럽게 꼬인 반투명 블루 리본. 외부 라이브러리 없음 -->
-    <div class="hero-art" id="heroArt" aria-hidden="true">
-<svg class="art" viewBox="0 0 480 480" fill="none" aria-hidden="true">
-  <defs>
-    <linearGradient id="rbF" x1=".08" y1="0" x2=".92" y2=".95">
-      <stop offset="0" stop-color="#8CB7FF"/><stop offset=".48" stop-color="#2E7BF6"/><stop offset="1" stop-color="#1C55B4"/>
-    </linearGradient>
-    <linearGradient id="rbB" x1=".92" y1="0" x2=".08" y2=".95">
-      <stop offset="0" stop-color="#EDF4FF"/><stop offset=".55" stop-color="#C2DAFF"/><stop offset="1" stop-color="#8DB6F5"/>
-    </linearGradient>
-    <radialGradient id="rbG" cx=".5" cy=".5" r=".5">
-      <stop offset="0" stop-color="#2E7BF6" stop-opacity=".13"/><stop offset="1" stop-color="#2E7BF6" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-  <ellipse cx="240" cy="240" rx="215" ry="195" fill="url(#rbG)"/>
-  <g transform="rotate(-12 240 240)">
-<path d="M 355 309 L 352 312 L 349 315 L 345 318 L 341 322 L 337 325 L 333 328 L 329 330 L 325 333 L 320 336 L 316 338 L 311 341 L 306 343 L 301 345 L 296 347 L 290 349 L 285 351 L 280 353 L 274 354 L 269 356 L 263 357 L 257 358 L 252 359 L 246 360 L 240 360 L 234 361 L 228 361 L 222 361 L 217 361 L 211 361 L 205 361 L 199 360 L 193 360 L 187 359 L 182 358 L 176 357 L 170 355 L 165 354 L 159 352 L 154 351 L 149 349 L 144 347 L 139 344 L 134 342 L 129 339 L 124 337 L 119 334 L 115 331 L 111 328 L 107 324 L 103 321 L 99 317 L 95 314 L 92 310 L 89 306 L 86 302 L 83 298 L 80 294 L 78 290 L 76 285 L 74 281 L 72 276 L 71 272 L 70 267 L 69 263 L 69 258 L 68 253 L 68 249 L 69 244 L 69 240 L 70 236 L 71 231 L 72 227 L 74 223 L 75 219 L 77 215 L 79 211 L 82 208 L 84 204 L 87 201 L 90 198 L 92 194 L 96 191 L 99 189 L 102 186 L 106 183 L 109 181 L 113 178 L 117 176 L 121 174 L 122 175 L 119 178 L 116 182 L 114 185 L 111 188 L 109 192 L 107 195 L 106 199 L 104 202 L 103 206 L 102 209 L 101 213 L 100 216 L 100 219 L 100 222 L 99 225 L 99 229 L 100 231 L 100 234 L 100 237 L 101 240 L 102 243 L 102 245 L 103 248 L 104 250 L 105 253 L 107 255 L 108 258 L 110 260 L 111 262 L 113 265 L 115 267 L 116 269 L 118 272 L 121 274 L 123 276 L 125 278 L 128 281 L 130 283 L 133 285 L 136 287 L 139 289 L 142 291 L 145 293 L 149 295 L 152 297 L 156 299 L 159 301 L 163 303 L 167 305 L 171 307 L 175 308 L 179 310 L 183 311 L 188 313 L 192 314 L 197 316 L 201 317 L 206 318 L 211 319 L 215 320 L 220 321 L 225 322 L 230 323 L 235 324 L 240 324 L 245 325 L 250 325 L 255 326 L 260 326 L 265 326 L 270 326 L 275 326 L 280 326 L 285 325 L 290 325 L 295 324 L 300 324 L 305 323 L 310 322 L 315 321 L 320 320 L 324 319 L 329 318 L 333 317 L 338 315 L 342 314 L 347 312 L 351 310 L 355 308 Z" fill="url(#rbB)" opacity=".7"/><path d="M 379 240 L 380 243 L 380 246 L 380 249 L 381 251 L 381 255 L 380 258 L 380 261 L 380 264 L 379 267 L 378 271 L 377 274 L 376 278 L 374 281 L 373 285 L 371 288 L 369 292 L 366 295 L 364 298 L 361 302 L 358 305 L 359 306 L 363 304 L 367 302 L 371 299 L 374 297 L 378 294 L 381 291 L 384 289 L 388 286 L 390 282 L 393 279 L 396 276 L 398 272 L 401 269 L 403 265 L 405 261 L 406 257 L 408 253 L 409 249 L 410 244 L 411 240 Z" fill="url(#rbF)" opacity=".95"/><path d="M 125 172 L 129 170 L 133 168 L 138 166 L 142 165 L 147 163 L 151 162 L 156 161 L 160 160 L 165 159 L 170 158 L 175 157 L 180 156 L 185 156 L 190 155 L 195 155 L 200 154 L 205 154 L 210 154 L 215 154 L 220 154 L 225 154 L 230 155 L 235 155 L 240 156 L 245 156 L 250 157 L 255 158 L 260 159 L 265 160 L 269 161 L 274 162 L 279 163 L 283 164 L 288 166 L 292 167 L 297 169 L 301 170 L 305 172 L 309 173 L 313 175 L 317 177 L 321 179 L 324 181 L 328 183 L 331 185 L 335 187 L 338 189 L 341 191 L 344 193 L 347 195 L 350 197 L 352 199 L 355 202 L 357 204 L 359 206 L 362 208 L 364 211 L 365 213 L 367 215 L 369 218 L 370 220 L 372 222 L 373 225 L 375 227 L 376 230 L 377 232 L 378 235 L 378 237 L 379 240 L 411 240 L 411 236 L 412 231 L 412 227 L 411 222 L 411 217 L 410 213 L 409 208 L 408 204 L 406 199 L 404 195 L 402 190 L 400 186 L 397 182 L 394 178 L 391 174 L 388 170 L 385 166 L 381 163 L 377 159 L 373 156 L 369 152 L 365 149 L 361 146 L 356 143 L 351 141 L 346 138 L 341 136 L 336 133 L 331 131 L 326 129 L 321 128 L 315 126 L 310 125 L 304 123 L 298 122 L 293 121 L 287 120 L 281 120 L 275 119 L 269 119 L 263 119 L 258 119 L 252 119 L 246 119 L 240 120 L 234 120 L 228 121 L 223 122 L 217 123 L 211 124 L 206 126 L 200 127 L 195 129 L 190 131 L 184 133 L 179 135 L 174 137 L 169 139 L 164 142 L 160 144 L 155 147 L 151 150 L 147 152 L 143 155 L 139 158 L 135 162 L 131 165 L 128 168 L 125 171 Z" fill="url(#rbF)" opacity=".95"/>
-  </g>
-</svg>
+  <div class="wrap hero-in">
+    <div class="eyebrow hero-fade">PRODUCT MANAGER</div>
+    <h1 class="hero">25개 커뮤니티가 함께 쓰는<br><span class="hl">커뮤니티 플랫폼</span>을 기획합니다</h1>
+    <p class="hero-sub hero-fade">모네플은 여러 커뮤니티가 하나의 제품 위에서 각각 운영되는 플랫폼입니다. 커뮤니티마다 운영자가 따로 있고, 지금 25개가 올라가 있습니다. 그 안에서 <b>사용자가 쓰는 화면과 운영자가 쓰는 관리 도구(CMS)</b>를 함께 기획합니다.</p>
+    <div class="cta hero-fade">
+      <a href="#projects" class="btn p">대표 프로젝트 보기 →</a>
+      <a href="#career" class="btn g">경력</a>
     </div>
   </div>
 </header>
 
+<div class="statband">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat reveal"><div class="n">5<span class="u">개 도메인</span></div><div class="l">워크라운지 · B2B 커머스 · EAP<br>커뮤니티 SaaS · 뉴스 콘텐츠</div></div>
+      <div class="stat reveal"><div class="n">25<span class="u">개</span></div><div class="l">하나의 제품 위에서 운영되는<br>커뮤니티 수 · 기능 기획 1인 담당</div></div>
+      <div class="stat reveal"><div class="n">37.2<span class="u">%</span></div><div class="l">검색 화면 개선 뒤, 글을 눌러 본 방문이<br>전체 조회에서 차지하는 비중 (21.0% → 37.2%)</div></div>
+      <div class="stat reveal"><div class="n">1.6<span class="u">배</span></div><div class="l">검색 유입 개선 뒤 하루 평균<br>게시글 조회수 (44.8만 → 72.1만)</div></div></div>
+  </div>
+</div>
+
 <!-- ABOUT -->
-<section class="about" id="about">
+<section id="about" class="band">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div class="sec-tag">ABOUT</div>
-      <h2 class="sec-title">요청을 기능으로 옮기기 전에,<br>무엇을 풀어야 하는지 확인합니다</h2>
+      <div class="eyebrow">ABOUT</div>
+      <h2 class="sec-title">사용자가 쓰는 화면과<br><span class="hl">운영자가 쓰는 도구</span>를 같이 봅니다</h2>
     </div>
     <div class="about-grid">
       <div class="about-body reveal">
         <p>카페에서 7년 일하면서 손님이 쓰는 화면보다 <b>일하는 사람이 쓰는 도구</b>에 먼저 눈이 갔습니다. 사장님이 쓰던 프로그램은 늘 손님용 앱보다 불편했습니다. 그때부터 제품을 볼 때 사용자 기능과 운영 도구를 같이 보게 됐습니다.</p>
-        <p>집무실에서는 워크라운지 앱과 오프라인 지점 데이터를 함께 봤고, 플룸에서는 꽃집 사장님이 쓰는 어드민을 포함해 B2B 커머스를 처음부터 만들었습니다. EAP에서는 기업 임직원용 앱을, 지금은 <b>모네플</b>에서 유저 화면과 운영자 CMS를 함께 기획합니다.</p>
-        <p>모네플은 25개 커뮤니티가 한 제품을 공유합니다. 한 곳의 요청을 그대로 만들면 다른 곳이 깨지기 때문에, 어디까지 공통으로 두고 어디부터 커뮤니티가 직접 정하게 할지를 먼저 나눈 뒤 개발 가능한 범위와 순서로 정리해 넘깁니다. SQL과 GA로 직접 데이터를 보고, 화면 설계와 정책 문서를 같이 씁니다.</p>
+        <p>집무실에서는 워크라운지 앱과 오프라인 지점 데이터를 함께 봤고, 플룸에서는 꽃집 사장님이 쓰는 어드민을 포함해 B2B 커머스를 처음부터 만들면서 상품·주문·배송·정산 정책을 문서로 정리했습니다. EAP(기업이 임직원에게 제공하는 지원 프로그램)에서는 임직원용 앱을, 지금은 <b>모네플</b>에서 사용자 화면과 운영자 CMS를 함께 기획합니다.</p>
+        <p>지금은 모네플에서 커뮤니티 플랫폼을 기획합니다. 25개 커뮤니티가 하나의 제품을 함께 쓰고, 그 안에서 <b>전문가 기능·등급제·검색·운영자 CMS</b>를 맡고 있습니다. 커뮤니티마다 원하는 게 달라서, 같은 기능이라도 어디까지 똑같이 만들고 어디부터 각자 바꿀 수 있게 할지를 정하는 일이 많습니다.</p>
+        <p>배포 후에는 SQL과 GA로 직접 지표를 조회해 확인하고, 화면 설계와 정책 문서를 함께 작성합니다.</p>
       </div>
       <aside class="card reveal">
         <h4>PROFILE</h4>
         <div class="kv"><span class="k">역할</span><span class="v">프로덕트 기획자 / PM</span></div>
-        <div class="kv"><span class="k">現</span><span class="v">넛지헬스케어(캐시워크)<br>· 모네플</span></div>
-        <div class="kv"><span class="k">경력</span><span class="v">커머스 · 워크라운지<br>· 커뮤니티 4개사</span></div>
+        <div class="kv"><span class="k">現</span><span class="v">넛지헬스케어(캐시워크)<br>· 모네플 · 서플</span></div>
+        <div class="kv"><span class="k">도메인</span><span class="v">워크라운지 · B2B 커머스<br>EAP · 커뮤니티 · 뉴스 콘텐츠</span></div>
         <div class="kv"><span class="k">데이터</span><span class="v">SQL · Python<br>GA · GSC · BigQuery</span></div>
         <div class="kv"><span class="k">학력</span><span class="v">성균관대 서비스융합<br>디자인 (석사)</span></div>
       </aside>
@@ -436,371 +488,357 @@
   </div>
 </section>
 
-<div class="statband">
-  <div class="wrap">
-    <div class="stats">
-      <div class="stat"><div class="n">4<span class="u">개사</span></div><div class="l">커머스 · 워크라운지 · 커뮤니티<br>B2B와 B2C, 0→1과 그로스</div></div>
-      <div class="stat"><div class="n">25<span class="u">개</span></div><div class="l">한 제품 위에 올라간 커뮤니티의<br>기능 기획을 1인 담당</div></div>
-      <div class="stat"><div class="n">+76<span class="u">%</span></div><div class="l">검색 화면 개선 뒤 게시글 클릭<br>세션 비중 (GA, 같은 기준)</div></div>
-      <div class="stat"><div class="n">+150<span class="u">%</span></div><div class="l">B2B 웹 개편 뒤 기업 상담 문의율<br>(집무실, 2022)</div></div></div>
-  </div>
-</div>
+
 
 <!-- CAREER -->
 <section id="career">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div class="sec-tag">CAREER</div>
+      <div class="eyebrow">CAREER</div>
       <h2 class="sec-title">경력</h2>
     </div>
     <div class="career">
       <div class="job reveal"><div class="jperiod">2024.11 – 재직 중<br>정규직</div><div><div class="co">넛지헬스케어 (캐시워크)</div><div class="role">프로덕트 기획 / PM · 모네플</div><ul>
-        <li>커뮤니티 플랫폼 <b>모네플</b>의 기획을 1인으로 담당. 전문가 기능, 등급제, 검색, 게시판, 운영자 CMS, 검색 유입</li>
-        <li>25개 커뮤니티가 한 제품을 공유해, <b>공통으로 만들 범위와 커뮤니티가 직접 정할 범위</b>를 나누는 일이 기획의 대부분</li>
-        <li>주간 GSC·GA 지표로 다음 우선순위를 정함</li>
+        <li>커뮤니티 플랫폼 <b>모네플</b>의 기획을 1인으로 담당했습니다. 전문가 인증·매칭, 등급제 점수 산식, 검색 화면, 게시글·댓글 UX, 운영자 CMS, 검색 유입 구조를 기획해 배포했습니다</li>
+        <li>커뮤니티별 요청을 그때마다 기능으로 추가하지 않고, <b>운영자가 CMS에서 직접 바꿀 수 있는 구조로 개발</b>했습니다. 커뮤니티가 쓸 전문가 인증 유형, 게시판별 질문 매칭 기준, 전문가 명칭, 추천 키워드, 등급 운영 방식(수동·조건 자동·점수 자동)이 여기에 해당합니다</li>
+        <li>2026년 8월부터 뉴스·콘텐츠 서비스 <b>서플</b> 기획을 함께 담당했습니다. 크리에이터 Pick 탭과 상세 페이지, 에디터즈, 작업 현황 관리 체계를 기획했습니다</li>
       </ul></div></div>
 
       <div class="job reveal"><div class="jperiod">2024.03 – 2024.08<br>정규직</div><div><div class="co">주식회사 에잇블룸 (플룸)</div><div class="role">프로덕트 기획 · B2B 화훼 커머스</div><ul>
-        <li>B2B 화훼 버티컬 커머스(App/Web) <b>초기 제품을 0→1로 구축</b></li>
-        <li>유저 인터뷰로 퍼소나·블루프린트를 만들고 앱·어드민 플로우, 웹 IA를 설계</li>
-        <li>상품·주문·배송·정산 정책 문서화, 데이터 추적 이벤트 정의</li>
+        <li>B2B 화훼 버티컬 커머스(App/Web)의 <b>초기 제품을 0→1로 구축</b>했습니다</li>
+        <li>유저 인터뷰를 진행해 퍼소나와 서비스 블루프린트를 만들고, 앱·어드민 플로우와 웹 IA를 설계했습니다</li>
+        <li>상품·주문·배송·정산 정책을 문서화하고, 데이터 추적 이벤트를 정의했습니다</li>
       </ul></div></div>
 
       <div class="job reveal"><div class="jperiod">2022.02 – 2022.10<br>정규직</div><div><div class="co">알리콘 (집무실)</div><div class="role">데이터 분석 · 프로덕트 기획 · 워크라운지</div><ul>
-        <li>B2C/B2B 워크라운지(App/Web/Place)에서 <b>유저 데이터를 보고 개선안을 냄</b></li>
-        <li>SQL·Python·BigQuery 분석, User Journey 와이어프레임, 성과 지표 정의</li>
-        <li>Push 알림 기획, A/B 테스트</li>
+        <li>워크라운지(App/Web/오프라인 지점)의 <b>이용 데이터를 분석해 개선안을 제안</b>했습니다</li>
+        <li>SQL·Python·BigQuery로 이용 데이터를 분석하고, User Journey 와이어프레임과 성과 지표를 정의했습니다</li>
+        <li>푸시 알림을 기획하고 A/B 테스트로 효과를 검증했습니다</li>
       </ul></div></div>
 
       <div class="job reveal"><div class="jperiod">2020.10 – 2021.04<br>인턴</div><div><div class="co">(주)뉴작</div><div class="role">콘텐츠 · UI 디자인 인턴</div><ul>
-        <li>키오스크 UI 디자인·QA, XR 미디어아트 전시 컬러 그레이딩, 마케팅 콘텐츠 디자인</li>
+        <li>키오스크 UI를 디자인하고 QA했습니다. XR 미디어아트 전시의 컬러 그레이딩과 마케팅 콘텐츠 디자인을 맡았습니다</li>
       </ul></div></div>
     </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" style="background:var(--bg-2)">
+<section id="projects" class="band">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div class="sec-tag">SELECTED WORK</div>
+      <div class="eyebrow">SELECTED WORK</div>
       <h2 class="sec-title">대표 프로젝트</h2>
-      <p class="sec-desc">기억에 남는 판단을 중심으로 적었습니다. 카드를 누르면 펼쳐집니다.</p>
     </div>
     <div class="proj-list">
 
-      <!-- ===== 1. 검색 ===== -->
-      <article class="proj reveal" id="p-search">
+      <!-- ===== 01. 전문가 기능 범용화 ===== -->
+      <article class="proj reveal" id="p-coach">
         <div class="proj-head">
-          <div class="proj-emoji">01</div>
+          <div class="proj-num">01</div>
           <div class="proj-main">
-            <div class="chip-row"><span class="chip">커뮤니티 · 그로스</span><span class="chip d">2025.08 – 09</span></div>
-            <div class="proj-title">모바일 웹 검색 UI/UX 개선</div>
-            <div class="proj-sub">이탈 지점을 알 수 없던 검색 여정에서, 측정 기준부터 다시 정의하고 진입과 결과 탐색을 먼저 개선</div>
+            <div class="chip-row"><span class="chip">모네플 · 제품 구조</span><span class="chip d">2025.10 – 2026.08</span></div>
+            <div class="proj-title">한 커뮤니티 전용이던 전문가 기능을, 25개 커뮤니티가 설정만으로 쓰게</div>
+            <div class="proj-sub">커뮤니티 회원이 전문가에게 질문하고 답변받는 기능입니다. 25개 커뮤니티 중 한 곳에만 적용되어 있었습니다. 화면에 표시되는 이름은 커뮤니티마다 달라서, 아래 화면에는 ‘코치’로 나옵니다.</div>
           </div>
-          <div class="proj-toggle">+</div>
+          <div class="proj-toggle"><span class="t-open">자세히</span><span class="t-close">접기</span><i>+</i></div>
         </div>
+
+        <div class="psum">
+          <div class="pgrid">
+            <div class="pcell"><span class="pk">문제</span><p>전문가 기능이 그 커뮤니티 한 곳에 맞춰 고정되어 있어서, 다른 커뮤니티가 쓰려면 그때마다 개발이 필요했습니다. 전문가와 질문을 연결하는 기준도 질문 주제 하나뿐이라 <b>같은 학교·같은 직군 기준으로 연결해 달라</b>는 요청은 반영할 수 없었습니다.</p></div>
+            <div class="pcell d"><span class="pk">개선</span><p>인증은 자격증·경력/재직·학교·활동 포트폴리오 4개 유형으로 정의하고 검증 절차를 통일했습니다. 그 위에서 <b>커뮤니티별로 사용할 인증 유형, 게시판별 질문 매칭 기준, 화면에 노출되는 전문가 명칭</b>을 운영자가 CMS에서 직접 켜고 끄거나 바꿀 수 있도록 개발했습니다.</p></div>
+            <div class="pcell"><span class="pk">성과</span><p>신규 커뮤니티는 개발 없이 CMS 설정만으로 전문가 기능을 도입합니다. 6월 30일 <b>같은 학교·직군끼리 연결하는 방식</b>을 적용한 간호 직군 커뮤니티에서는 <b>7월에 전문가 답변이 달린 게시글이 255건</b> 나왔습니다(적용 전 0건).</p></div>
+          </div>
+        </div>
+
         <div class="proj-body"><div class="proj-in">
 
           <div class="blk">
-            <div class="bl-lab">상황</div>
-            <p>기존 검색 관련 페이지 집계에서 게시글로 이동한 비율은 16.7%였습니다. 다만 URL 파라미터 기반이라 <b>검색 실행과 결과 노출을 구분할 수 없었고</b>, 검색창을 못 찾는 문제인지 결과에서 고르지 못하는 문제인지 알 수 없었습니다.</p>
-            <div class="role-line"><b>내 역할</b> — 문제 정의, 화면 사양, GA 이벤트 정의, 배포 후 지표 확인.</div>
-          </div>
-
-          <div class="blk">
-            <div class="bl-lab">판단</div>
-            <div class="dec">
-              <div class="dh">화면 개선과 함께 측정 기준을 다시 정의했습니다.</div>
-              <p>그대로 두면 이번 개선의 효과도 설명할 수 없었습니다. <code>search_execute</code>, <code>search_result_view</code>, <code>post_click</code> 세 이벤트를 정의해 전달했습니다. 배포 전후 수치가 같은 기준이 아니게 되는 점은 감수했고, 결과에도 그렇게 표기했습니다.</p>
-            </div>
-            <div class="dec">
-              <div class="dh">검색 엔진 개선은 1차 범위에서 제외했습니다.</div>
-              <p>형태소 분석이나 랭킹 개선은 백엔드 작업이 커서 2주 안에 결과를 볼 수 없었습니다. 결과가 같아도 고르는 시간을 줄이면 클릭이 는다고 보고, 진입성과 결과 탐색을 먼저 개선했습니다.</p>
-            </div>
-          </div>
-
-          <div class="blk">
-            <div class="bl-lab">한 일</div>
+            <div class="bl-lab">개선 내용</div>
+            <div class="role-line"><b>담당 범위</b> 인증·매칭 방식 정의, 전문가 프로필·전문가 어드민·CMS 화면 설계, 기존 전문가 데이터 이관 범위 정리, QA.</div>
             <ul>
-              <li>검색창을 화면 상단으로 이동(그전에는 목록 아래 페이지네이션 밑)</li>
-              <li>추천 키워드는 커뮤니티마다 성격이 달라 <b>CMS 설정 항목으로 분리</b></li>
-              <li>최근 검색어 30개 저장, 검색어 강조, AND 검색, 관련도순 정렬 적용. 결과는 제목·내용·닉네임 탭으로 분리</li>
-              <li>목표치를 배포 전에 정하고 배포 후 2주(9/5–9/18)를 확인 기간으로 잡음</li>
+              <li>전문가 인증을 <b>자격증 / 경력·재직 / 학교 / 활동 포트폴리오</b> 4개 유형으로 정의하고, 유형별 제출 항목과 검증 주체를 정했습니다</li>
+              <li>커뮤니티마다 <b>어떤 인증 유형을 쓸지 CMS에서 켜고 끌 수 있게</b> 했습니다</li>
+              <li>게시판마다 <b>활동분야 기준</b>과 <b>인증정보 기준</b> 중 어느 쪽으로 전문가와 질문을 연결할지 CMS에서 선택하도록 설계했습니다</li>
+              <li>전문가 프로필을 <code>/expert/{id}</code> 경로로 분리하고 인증 내역·활동 분야·칼럼·후기를 한 화면에 배치했습니다</li>
+              <li>전문가 어드민에 <b>본인의 활동분야·인증정보와 일치하는 질문만</b> 노출되는 답변 화면을 추가했습니다</li>
+              <li>커뮤니티별로 ‘코치’ 명칭을 변경할 수 있게 하고 다국어 값도 함께 처리했습니다</li>
+              <li>기존 전문가의 인증 정보를 4개 유형으로 이관하는 범위와 예외를 정리했습니다</li>
+            </ul>
+            <div class="flow" style="margin-bottom:18px">
+            <div class="flow-h">전문가 인증 · 네 유형 중 하나를 선택, 누가 확인하는지는 유형별로 다름</div>
+            <div class="branch">
+            <div class="broot"><div class="brt">전문가 인증 신청</div><div class="brd">네 가지 중 하나 선택<br>활동 분야 최대 10개</div></div>
+            <div class="bstem"></div>
+            <div class="bleaves">
+            <div class="leaf"><span class="lt">자격증</span><span class="ld">자격증 사본 → 프로필에 자격 명칭</span><span class="pill manual">운영자 심사</span></div>
+            <div class="leaf"><span class="lt">경력 · 재직</span><span class="ld">기업 메일 인증코드(10분) → 기업명·직무</span><span class="pill auto">자동 확인</span></div>
+            <div class="leaf"><span class="lt">학교</span><span class="ld">학교 메일 또는 증빙 → 학교·전공</span><span class="pill auto">자동 + 보완 시 수동</span></div>
+            <div class="leaf"><span class="lt">활동 포트폴리오</span><span class="ld">활동 URL·파일 → 활동 분야</span><span class="pill manual">운영자 심사</span></div>
+            </div>
+            </div>
+            <div class="flow-n">재직 인증은 이번에 새로 추가한 유형으로, 회사 메일 인증코드로 자동 확인하게 만들었습니다. 사람이 판단해야 하는 두 유형만 운영자 심사로 두었습니다.</div>
+            </div>
+            <div class="tbl-wrap">
+            <table>
+            <thead><tr><th>게시판 CMS 설정</th><th>질문 작성 화면</th><th>전문가 답변 화면</th></tr></thead>
+            <tbody>
+            <tr><td><b>활동분야로 연결</b></td><td>주제(분야) 선택</td><td>내 활동분야 질문만</td></tr>
+            <tr><td><b>인증정보로 연결</b></td><td>학교·기업·직무 선택</td><td>내 인증정보와 맞는 질문만</td></tr>
+            <tr><td><b>둘 다</b></td><td>분야 + 배경 함께 선택</td><td>두 조건 모두 반영</td></tr>
+            </tbody>
+            </table>
+            </div>
+            <div class="tcap">운영자가 CMS에서 고른 값 하나로 질문 작성 화면과 전문가 답변 화면이 함께 바뀝니다.</div>
+          </div>
+
+          <div class="blk">
+            <div class="bl-lab">판단 근거</div>
+            <div class="dec">
+              <div class="dh">인증 유형은 4개로 고정하고, 그중 무엇을 쓸지만 커뮤니티가 고르게 했습니다</div>
+              <p>커뮤니티가 요청하는 대로 유형을 새로 만들어 주면 심사 기준과 관리 화면이 커뮤니티 수만큼 늘어납니다. 유형 자체와 검증 절차는 공통으로 개발하고, 그중 어떤 유형을 쓸지와 화면에 노출되는 명칭은 운영자가 CMS에서 설정하도록 분리했습니다.</p>
+            </div>
+            <div class="dec">
+              <div class="dh">새로 추가한 재직 인증은 회사 메일 인증코드로 자동 확인하게 만들었습니다</div>
+              <p>재직 인증은 이번에 처음 추가한 유형입니다. 서류를 받아 운영자가 확인하는 방식으로 만들면 전문가가 늘어날수록 심사 업무가 같이 늘어납니다. 기업 메일로 10분 유효한 인증코드를 발송해 자동 확인하고, 사람이 판단해야 하는 자격증·활동 포트폴리오 두 유형만 운영자 심사로 두었습니다.</p>
+            </div>
+            <div class="dec">
+              <div class="dh">매칭 기준은 커뮤니티 단위가 아니라 게시판 단위로 선택하게 했습니다</div>
+              <p>분야로 연결하는 것이 맞는 게시판과 같은 학교·회사로 연결하는 것이 맞는 게시판이 한 커뮤니티 안에 함께 있었습니다. 활동분야·인증정보 두 축을 만들고 게시판별로 선택하게 하면, 설정값 하나로 질문 작성 화면과 전문가 답변 화면이 함께 바뀝니다.</p>
+            </div>
+            <div class="subnote"><b>후속 작업</b> 전문가만 작성할 수 있는 ‘전문가 칼럼’을 일반 게시글과 분리했습니다. 작성 권한, 최소 글자 수, H1 목차, 글 하단 프로필을 별도로 정의하고, Person/Article 구조화 데이터와 칼럼 전용 사이트맵을 적용했습니다.</div>
+          </div>
+
+          <div class="blk">
+            <div class="bl-lab">성과</div>
+            <div class="res"><ul>
+              <li>신규 커뮤니티는 <b>개발 없이 CMS 설정만으로</b> 전문가 기능을 도입합니다. 게시판별 매칭 기준과 화면에 노출되는 명칭도 운영자가 직접 설정합니다.</li>
+              <li>인증 범용화·전문가 프로필·전문가 어드민은 2025년 12월, 매칭 개선은 2026년 6월, 전문가 칼럼은 2026년 7월에 나누어 배포했습니다.</li>
+            </ul>
+            </div>
+
+            <div class="res" style="margin-top:12px">
+              <div class="rh">배포 뒤 확인한 지표</div>
+              <div class="chart">
+                <div class="ct">전문가 답변이 달린 게시글 수</div>
+                <div class="cs">심리상담 커뮤니티 · 재채택 제한 완화와 알림 분리 배포 전후</div>
+                <div class="brow"><span class="bv">246<i>건</i></span><div class="track"><div class="bar before" data-w="58"><span>2026.08</span></div></div></div>
+                <div class="brow b-after"><span class="bv">426<i>건</i></span><div class="track"><div class="bar after" data-w="100"><span>2026.09</span></div></div></div>
+                <div class="cn">+73% · 1월부터 8월까지 감소하던 답변 수가 2026년 중 가장 높은 값입니다</div>
+              </div>
+
+              <div class="refhead">매칭 구조를 새로 도입한 커뮤니티</div>
+              <div class="tbl-wrap">
+                <table>
+                  <thead><tr><th>간호 직군 커뮤니티 · 전문가 답변</th><th data-l="6월">2026.06</th><th data-l="7월">07</th><th data-l="8월">08</th><th data-l="9월">09</th></tr></thead>
+                  <tbody><tr><td><b>답변이 달린 게시글</b></td><td>0건</td><td>255건</td><td>405건</td><td>324건</td></tr></tbody>
+                </table>
+              </div>
+              <div class="tcap">6월 30일에 인증정보 기준 매칭을 적용했습니다. 적용 전에는 전문가 답변이 발생하지 않던 커뮤니티입니다.</div>
+
+              <p class="subnote"><b>전문가 칼럼</b> 3개 커뮤니티 합계 월 발행 수가 4월 6건에서 8월 37건으로 늘었습니다. 도입 직후 두 달은 발행이 거의 없었고 6월부터 월 27~37건을 유지했습니다. 9월은 11건으로 감소했으며 원인은 확인 중입니다.</p>
+
+              <details class="more solo">
+                <summary>측정 조건</summary>
+                <div class="mb">
+                  <p><b>집계 기준</b> 커뮤니티 DB의 게시글·댓글 기록을 직접 조회해 계산했습니다. 한국 시간 기준이며 2026년 9월 30일에 조회했습니다. 9월 값은 9월 29일까지 적재된 기준입니다.</p>
+                  <p><b>한계</b> A/B 테스트가 아니라 배포 전후 비교입니다. 같은 시기의 다른 배포나 계절 영향이 섞여 있을 수 있습니다. 전문가 칼럼 수는 증분 복제 테이블 기준이라 일부 누락이 있을 수 있습니다.</p>
+                </div>
+              </details>
+              <p class="subnote"><b>다음 확인 항목</b> 인증 유형별 승인·반려 비율.</p>
+            </div>
+          </div>
+
+        </div></div>
+      </article>
+
+      <!-- ===== 02. 검색 UI/UX ===== -->
+      <article class="proj reveal" id="p-search">
+        <div class="proj-head">
+          <div class="proj-num">02</div>
+          <div class="proj-main">
+            <div class="chip-row"><span class="chip">모네플 · 그로스</span><span class="chip d">2025.08 – 09</span></div>
+            <div class="proj-title">검색창 위치와 검색 결과 화면 개선</div>
+            <div class="proj-sub">커뮤니티 안에서 게시글을 찾는 검색 기능입니다. 화면 개선과 함께 검색 실행부터 게시글 클릭까지의 측정 이벤트를 정의했습니다.</div>
+          </div>
+          <div class="proj-toggle"><span class="t-open">자세히</span><span class="t-close">접기</span><i>+</i></div>
+        </div>
+
+        <div class="psum">
+          <div class="pgrid">
+            <div class="pcell"><span class="pk">문제</span><p>검색창이 게시글 목록 아래 페이지네이션 밑에 있었습니다. 검색 관련 페이지에서 게시글로 이동한 비율은 16.7%였지만, 이 수치는 주소에 붙은 값으로만 센 것이라 <b>검색을 실행한 것과 결과 화면을 본 것이 구분되지 않았습니다.</b> 검색창을 찾지 못한 것인지, 결과에서 선택할 글이 없어 이탈한 것인지 확인할 수 없었습니다.</p></div>
+            <div class="pcell d"><span class="pk">개선</span><p>검색창을 목록 하단에서 <b>화면 상단으로</b> 옮기고, 검색 결과에 <b>검색어 강조와 제목·내용·닉네임 탭</b>을 추가했습니다. 최근 검색어 30개 저장, AND 검색, 관련도순 정렬을 함께 넣었고, 추천 키워드는 운영자가 CMS에서 직접 입력하도록 분리했습니다.</p></div>
+            <div class="pcell"><span class="pk">성과</span><p>글을 눌러 본 방문이 전체 조회에서 차지하는 비중이 <b>21.0%에서 37.2%</b>로 올랐습니다. (GA 동일 기준, 배포 전 31일 · 배포 후 14일)</p></div>
+          </div>
+        </div>
+
+        <div class="proj-body"><div class="proj-in">
+
+          <div class="blk">
+            <div class="bl-lab">개선 내용</div>
+            <div class="role-line"><b>담당 범위</b> 문제 정의, 화면 사양 작성, GA 이벤트 정의, 배포 후 지표 확인.</div>
+            <ul>
+              <li>검색창을 게시글 목록 아래 페이지네이션 밑에서 <b>화면 상단</b>으로 이동했습니다</li>
+              <li>검색 결과를 <b>제목 · 내용 · 닉네임 탭</b>으로 나누고, 결과 안의 검색어를 강조 표시했습니다</li>
+              <li>최근 검색어 30개 저장, AND 검색, 관련도순 정렬을 추가했습니다</li>
+              <li>추천 키워드는 커뮤니티마다 적합한 단어가 달라 <b>운영자가 CMS에서 직접 입력</b>하도록 분리했습니다</li>
+              <li>검색 실행 · 결과 화면 조회 · 게시글 클릭 세 지점에 측정 이벤트를 정의해 개발팀에 전달했습니다</li>
+              <li>배포 후 GA 탐색 분석을 직접 구성해 게시글 클릭 세션 비중을 확인했습니다</li>
             </ul>
             <div class="figs figs-3" style="margin-top:18px">
-              <figure class="fig"><img src="images/search-as-is.png" alt="개선 전 검색 진입 화면"><figcaption><b>개선 전</b> · 검색 진입</figcaption></figure>
-              <figure class="fig"><img src="images/search-to-be.png" alt="개선 후 검색 진입 화면"><figcaption><b>개선 후</b> · 검색 진입</figcaption></figure>
-              <figure class="fig"><img src="images/search-result.png" alt="개선 후 검색 결과 화면"><figcaption><b>개선 후</b> · 검색 결과</figcaption></figure>
+            <figure class="fig"><img src="images/search-as-is.png" alt="개선 전 검색 진입 화면"><figcaption><b>개선 전</b> · 검색 진입</figcaption></figure>
+            <figure class="fig"><img src="images/search-to-be.png" alt="개선 후 검색 진입 화면"><figcaption><b>개선 후</b> · 검색 진입</figcaption></figure>
+            <figure class="fig"><img src="images/search-result.png" alt="개선 후 검색 결과 화면"><figcaption><b>개선 후</b> · 검색 결과</figcaption></figure>
             </div>
-            <div class="tcap">이미지를 누르면 크게 볼 수 있습니다.</div>
           </div>
 
           <div class="blk">
-            <div class="bl-lab">결과</div>
-            <div class="res num">
-              <div class="rh">같은 기준으로 비교한 지표</div>
-              <div class="chart lead">
-                <div class="ct">게시글 클릭 세션 비중</div><div class="cs">전체 조회수 중 게시글 클릭이 발생한 세션의 조회수 · 배포 전에도 쓰던 GA 세그먼트</div>
-                <div class="brow"><span class="bl">배포 전</span><div class="track"><div class="bar before" data-w="56"></div></div><span class="bv">21.0%</span></div>
-                <div class="brow b-after"><span class="bl">배포 후</span><div class="track"><div class="bar after" data-w="100"></div></div><span class="bv">37.2%</span></div>
-                <div class="cn">+76% · 2025.08(31일) → 2025.09(14일)</div>
+            <div class="bl-lab">판단 근거</div>
+            <div class="dec">
+              <div class="dh">검색 엔진이 아니라 화면을 먼저 변경했습니다</div>
+              <p>검색어 해석(형태소 분석)과 결과 순서 조정은 백엔드 작업량이 커서 이번 범위에서 제외했습니다. 결과가 동일하더라도 원하는 글을 찾는 데 걸리는 시간이 줄면 클릭은 늘어날 것으로 봤습니다.</p>
+            </div>
+            <div class="dec">
+              <div class="dh">추천 키워드는 공통 목록 대신 운영자가 직접 입력하도록 했습니다</div>
+              <p>커뮤니티마다 사용자가 쓰는 단어가 달라 공통 목록이 맞지 않습니다. 운영자가 CMS에서 직접 입력하고 수정할 수 있도록 분리했습니다.</p>
+            </div>
+          </div>
+
+          <div class="blk">
+            <div class="bl-lab">성과</div>
+            <div class="res">
+              <div class="rh">배포 전과 동일한 기준으로 집계한 지표</div>
+              <div class="chart">
+                <div class="ct">글을 눌러 본 방문의 비중</div><div class="cs">전체 조회수 중, 게시글 클릭이 일어난 방문에서 나온 조회수 · 배포 전에도 쓰던 GA 기준</div>
+                <div class="brow"><span class="bv">21.0<i>%</i></span><div class="track"><div class="bar before" data-w="56"><span>배포 전 · 2025.08 (31일)</span></div></div></div>
+                <div class="brow b-after"><span class="bv">37.2<i>%</i></span><div class="track"><div class="bar after" data-w="100"><span>배포 후 · 2025.09 (14일)</span></div></div></div>
+                <div class="cn">집계 구간 길이가 달라 증가율은 표기하지 않았습니다</div>
               </div>
               <div class="figs figs-1" style="margin-top:12px">
                 <figure class="fig"><img src="images/search-ga-before.png" alt="배포 전 GA 지표"><figcaption><b>배포 전 · 2025.08.01–08.31</b></figcaption></figure>
-                <figure class="fig"><img src="images/search-ga-after.png" alt="배포 후 GA 지표"><figcaption><b>배포 후 · 2025.09.05–09.18</b> — 같은 세그먼트, 같은 지표</figcaption></figure>
+                <figure class="fig"><img src="images/search-ga-after.png" alt="배포 후 GA 지표"><figcaption><b>배포 후 · 2025.09.05–09.18</b> 같은 세그먼트, 같은 지표</figcaption></figure>
               </div>
               <div class="tcap">GA 탐색 분석은 직접 구성했고, 커뮤니티별 도메인 행은 제외했습니다.</div>
 
-              <div class="refhead">참고 지표 — 기준이 다르거나 계절성이 섞임</div>
-              <div class="charts ref">
-                <div class="chart">
-                  <div class="ct">검색 이용자 수</div><div class="cs">GA 세션 기준</div>
-                  <div class="brow"><span class="bl">배포 전</span><div class="track"><div class="bar before" data-w="48"></div></div><span class="bv">4,200</span></div>
-                  <div class="brow b-after"><span class="bl">배포 후</span><div class="track"><div class="bar after" data-w="100"></div></div><span class="bv">8,700</span></div>
-                </div>
-                <div class="chart">
-                  <div class="ct">게시글 이동 비율</div><div class="cs">배포 전후 측정 방식이 다름</div>
-                  <div class="brow"><span class="bl">배포 전</span><div class="track"><div class="bar before" data-w="20"></div></div><span class="bv">16.7%</span></div>
-                  <div class="brow b-after"><span class="bl">배포 후</span><div class="track"><div class="bar after" data-w="100"></div></div><span class="bv">83.4%</span></div>
-                </div>
-              </div>
+              <p class="subnote"><b>지표 선택</b> 배포 시 측정 이벤트가 변경되어, 전후 비교에는 배포 전과 동일한 기준으로 집계한 지표를 사용했습니다. 기준이 다른 두 지표는 아래 측정 조건에 따로 정리했습니다.</p>
+
               <details class="more solo">
                   <summary>산식과 측정 조건</summary>
                   <div class="mb">
-                    <p><b>게시글 클릭 세션 비중</b> — (342,816+80,259) ÷ (1,653,664+366,101) = 20.9% → (196,358+33,142) ÷ (496,337+120,589) = 37.2%. 배포 전에도 있던 세그먼트지만 구간 길이는 다릅니다(31일 vs 14일).</p>
-                    <p><b>게시글 이동 비율</b> — 16.7%는 URL 파라미터 집계, 83.4%는 <code>search_result_view</code> → <code>post_click</code> 기준으로 모수 정의가 다릅니다.</p>
-                    <p><b>검색 이용자 수</b> — 같은 GA 세션 기준이나 계절성과 트래픽 변화가 섞여 있습니다.</p>
+                    <p><b>글을 눌러 본 방문의 비중</b> (342,816+80,259) ÷ (1,653,664+366,101) = 20.9% → (196,358+33,142) ÷ (496,337+120,589) = 37.2%. 배포 전에도 있던 세그먼트지만 구간 길이는 다릅니다(31일 vs 14일).</p>
+                    <p><b>게시글 이동 비율</b> 16.7%는 URL 파라미터 집계, 83.4%는 <code>search_result_view</code> → <code>post_click</code> 기준으로 모수 정의가 다릅니다.</p>
+                    <p><b>참고로 본 값</b> 검색 이용자 수는 4,200 → 8,700(GA 세션)이고, 게시글 이동 비율은 16.7% → 83.4%입니다. 앞은 계절성과 전체 트래픽 변화가 섞여 있고 뒤는 모수 정의가 달라, 대표 수치로 쓰지 않았습니다.</p>
                   </div>
+              </details>
+            </div>
+            <div class="blk" style="padding-top:26px">
+              <div class="bl-lab">이후 적용</div>
+              <div class="retro"><p>측정 이벤트 변경과 화면 변경을 분리해 배포했다면 비교 가능한 지표가 더 남았을 것입니다. 이후에는 기획서 단계에서 GA 이벤트 정의를 먼저 확정해 개발팀에 전달하고 있으며, 등급제가 첫 적용 사례입니다.</p></div>
+            </div>
+          </div>
+
+        </div></div>
+      </article>
+
+      <!-- ===== 03. 주제 허브 · 검색 유입 ===== -->
+      <article class="proj reveal" id="p-hub">
+        <div class="proj-head">
+          <div class="proj-num">03</div>
+          <div class="proj-main">
+            <div class="chip-row"><span class="chip">모네플 · 검색 유입</span><span class="chip d">2026.01 – 06</span></div>
+            <div class="proj-title">주제별 페이지를 새로 만들고, 검색엔진이 읽을 수 있게 화면을 바꿨습니다</div>
+            <div class="proj-sub">커뮤니티 게시글은 검색을 통해 처음 들어오는 사용자가 많습니다. 검색에서 들어올 길을 새로 내고, 검색엔진이 읽어 가는 화면을 함께 손본 작업입니다.</div>
+          </div>
+          <div class="proj-toggle"><span class="t-open">자세히</span><span class="t-close">접기</span><i>+</i></div>
+        </div>
+
+        <div class="psum">
+          <div class="pgrid">
+            <div class="pcell"><span class="pk">문제</span><p>같은 주제의 게시글이 쌓여도 그 주제를 대표하는 페이지가 없어, <b>검색에서 주제 단위로 유입될 경로가 없었습니다.</b> 게시판 목록과 조회수도 브라우저가 그리고 있어서, <b>검색엔진이 수집해 가는 첫 화면에는 게시글 목록도 내부 링크도 들어 있지 않았습니다.</b></p></div>
+            <div class="pcell d"><span class="pk">개선</span><p><b>운영자가 CMS에서 주제를 선택하면 해당 주제의 허브 페이지가 생성되도록</b> 기획했습니다. 브라우저에서 그리던 게시판 목록과 조회수는 <b>서버가 미리 그려 보내도록</b> 바꿨습니다. 검색엔진이 읽는 대표 주소(canonical)·구조화 데이터·사이트맵도 정의하고, 커뮤니티 홈에 허브로 들어가는 입구를 추가했습니다.</p></div>
+            <div class="pcell"><span class="pk">성과</span><p>커뮤니티 6곳에 허브 페이지를 열었고, 하루 평균 게시글 조회수가 <b>44.8만에서 72.1만</b>으로 변했습니다(2026.01 → 04). 5월부터 감소했으나 9월 수치도 1월 대비 34% 높습니다.</p></div>
+          </div>
+        </div>
+
+        <div class="proj-body"><div class="proj-in">
+
+          <div class="blk">
+            <div class="bl-lab">개선 내용</div>
+            <div class="role-line"><b>담당 범위</b> 허브 페이지 구조와 게시글 선별 기준 설계, 서버 렌더링 전환 범위 선정, canonical·구조화 데이터·사이트맵 정의, 배포 전후 지표 직접 조회.</div>
+            <ul>
+              <li>2~3월 커뮤니티 6곳에 주제 허브 페이지를 열었습니다. 커뮤니티당 주제는 7~14개입니다</li>
+              <li>허브에 붙일 게시글은 키워드 매핑에 <b>품질 조건(삭제·숨김 글 제외, 글자 수, 댓글 수)</b>을 적용해 선별했습니다</li>
+              <li>4월에 게시판 목록과 조회수를 브라우저가 아니라 <b>서버가 미리 그려 보내도록</b> 바꿨습니다(서버 렌더링)</li>
+              <li>1월부터 6월까지 화면이 뜨는 속도를 높이려고 커뮤니티를 한 곳씩 Astro(웹 프레임워크)로 옮겼습니다</li>
+              <li>검색엔진이 읽는 대표 주소(canonical)·구조화 데이터·사이트맵을 정의하고, 커뮤니티 홈에 허브로 들어가는 입구를 추가했습니다</li>
+            </ul>
+            <div class="figs figs-2" style="margin-top:18px">
+            <figure class="fig"><img src="images/hub-entry.png" alt="커뮤니티 홈의 주제 허브 진입점"><figcaption><b>커뮤니티 홈</b> 주제 허브 진입점</figcaption></figure>
+            <figure class="fig phone"><img src="images/hub-live.png" alt="실제 배포된 주제 허브 페이지"><figcaption><b>배포된 주제 허브 페이지</b> 주제 설명, 누적 게시글·댓글 수, 전문가 칼럼, 이번 주 반응이 많았던 글</figcaption></figure>
+            </div>
+          </div>
+
+          <div class="blk">
+            <div class="bl-lab">판단 근거</div>
+            <div class="dec">
+              <div class="dh">주제 목록은 자동 추출하지 않고 운영자가 선택하게 했습니다</div>
+              <p>커뮤니티마다 다루는 주제가 달라 공통 목록을 만들 수 없었습니다. 운영자가 CMS에서 주제를 선택하면 허브 페이지가 생성되도록 하고, 주제 자동 추출은 이번 범위에서 제외했습니다.</p>
+            </div>
+            <div class="dec">
+              <div class="dh">전환 대상은 자바스크립트를 끈 상태에서 확인해 정했습니다</div>
+              <p>화면만 봐서는 어느 영역이 크롤러에 노출되지 않는지 구분되지 않습니다. 자바스크립트를 끈 상태로 페이지를 열어 남는 영역과 사라지는 영역을 기록하고, 사라지는 영역만 서버 렌더링 대상으로 정했습니다.</p>
+            </div>
+            <div class="dec">
+              <div class="dh">커뮤니티 한 곳을 먼저 전환하고 지표를 확인한 뒤 확대했습니다</div>
+              <p>한 곳을 전환해 지표를 확인한 뒤 다음 커뮤니티로 넘어갔습니다. 속도가 나오지 않는 구간은 Astro를 해당 커뮤니티에만 적용해 확인한 뒤 전체로 확대했습니다.</p>
+            </div>
+          </div>
+
+          <div class="blk">
+            <div class="bl-lab">성과</div>
+            <div class="res">
+              <div class="rh">배포 뒤 확인한 지표</div>
+              <div class="chart">
+                <div class="ct">커뮤니티 전체 하루 평균 게시글 조회수</div>
+                <div class="cs">작업이 집중된 2~4월 전후 · 커뮤니티 DB 직접 조회</div>
+                <div class="brow"><span class="bv">44.8<i>만</i></span><div class="track"><div class="bar before" data-w="62"><span>2026.01</span></div></div></div>
+                <div class="brow b-after"><span class="bv">72.1<i>만</i></span><div class="track"><div class="bar after" data-w="100"><span>2026.04</span></div></div></div>
+                <div class="cn">+61% · 448,049회 → 721,176회</div>
+              </div>
+
+              <div class="refhead">로그인하지 않은 조회</div>
+              <div class="chart">
+                <div class="ct">그중 비로그인 하루 평균 조회수</div>
+                <div class="cs">검색 유입은 대부분 비로그인 조회로 집계됩니다</div>
+                <div class="brow"><span class="bv">35.2<i>만</i></span><div class="track"><div class="bar before" data-w="62"><span>2026.01</span></div></div></div>
+                <div class="brow b-after"><span class="bv">56.6<i>만</i></span><div class="track"><div class="bar after" data-w="100"><span>2026.04</span></div></div></div>
+                <div class="cn">+61% · 351,846회 → 565,758회</div>
+              </div>
+
+              <p class="subnote"><b>이후 추이</b> 5월부터 감소했고, 9월 수치는 1월 대비 34% 높습니다. 월별 값은 아래에 있습니다.</p>
+
+              <details class="more solo">
+                <summary>월별 수치와 측정 조건</summary>
+                <div class="mb">
+                  <div class="tbl-wrap">
+                    <table>
+                      <thead><tr><th>2026</th><th>1월</th><th>2월</th><th>3월</th><th>4월</th><th>5월</th><th>6월</th><th>7월</th><th>8월</th><th>9월</th></tr></thead>
+                      <tbody>
+                        <tr><td><b>하루 평균 조회</b></td><td>448,049</td><td>487,838</td><td>586,120</td><td>721,176</td><td>713,701</td><td>703,884</td><td>662,605</td><td>609,368</td><td>601,247</td></tr>
+                        <tr><td><b>그중 비로그인</b></td><td>351,846</td><td>406,585</td><td>486,742</td><td>565,758</td><td>507,309</td><td>509,732</td><td>435,169</td><td>442,272</td><td>456,524</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <p><b>집계 기준</b> 커뮤니티 DB의 게시글 조회 기록을 직접 조회해 계산했습니다. 한국 시간 기준이며 2026년 9월 30일에 조회했습니다. 자동 생성 글이 대부분인 커뮤니티 1곳은 제외했습니다.</p>
+                  <p><b>한계</b> A/B 테스트가 아니라 기간 비교입니다. 같은 시기의 다른 배포나 계절 영향이 섞여 있을 수 있고, 비로그인 조회에는 봇 조회가 일부 포함될 수 있습니다.</p>
+                </div>
               </details>
             </div>
           </div>
 
-          <div class="blk">
-            <div class="bl-lab">배운 점</div>
-            <div class="retro"><p>측정 기준을 바꾸는 배포와 화면을 바꾸는 배포를 나눴어야 했습니다. 이 일 뒤로는 기획서 단계에서 GA 이벤트 정의를 먼저 확정해 전달하고 있고, 등급제가 그 첫 건입니다.</p></div>
-            <div class="tags"><span class="tag">#검색 UX</span><span class="tag">#측정 설계</span><span class="tag">#우선순위</span></div>
-          </div>
-
         </div></div>
       </article>
-
-      <!-- ===== 2. 전문가 기능 ===== -->
-      <article class="proj reveal" id="p-coach">
-        <div class="proj-head">
-          <div class="proj-emoji">02</div>
-          <div class="proj-main">
-            <div class="chip-row"><span class="chip">전문가 기능 · 제품 구조</span><span class="chip d">2025.10 – 2026.08</span></div>
-            <div class="proj-title">전문가(코치) 기능 범용화 &amp; 매칭 개선</div>
-            <div class="proj-sub">한 커뮤니티에만 있던 기능을, 인증·매칭 요구가 다른 여러 커뮤니티가 쓸 수 있게 다시 만든 작업</div>
-          </div>
-          <div class="proj-toggle">+</div>
-        </div>
-        <div class="proj-body"><div class="proj-in">
-
-          <div class="blk">
-            <div class="bl-lab">상황</div>
-            <p>전문가(코치) 기능이 특정 커뮤니티에 하드코딩돼 있어, 다른 곳에서 쓰겠다는 요청이 올 때마다 개발이 필요했습니다. 연결 기준도 질문 주제 하나뿐이라 <b>학교·기업·직무 같은 배경으로 코치를 특정해 묻고 싶다</b>는 요구는 받아줄 방법이 없었습니다.</p>
-            <div class="role-line"><b>내 역할</b> — 인증·매칭 방식 결정, 프로필·어드민·CMS 화면 설계, 기존 코치 데이터 이관 범위 정리, QA.</div>
-          </div>
-
-          <div class="blk">
-            <div class="bl-lab">판단</div>
-            <div class="dec">
-              <div class="dh">인증 방식을 커뮤니티가 자유롭게 정하게 두지 않고 네 가지로 정리했습니다.</div>
-              <p>자유롭게 열어주면 심사 기준과 관리 화면이 커뮤니티 수만큼 늘어납니다. 자격증 / 경력·재직 / 학교 / 활동 포트폴리오로 유형을 고정하고 검증 방식은 하나로 뒀습니다. 대신 <b>‘코치’ 명칭은 커뮤니티가 바꾸도록</b> 열어뒀습니다.</p>
-            </div>
-            <div class="dec">
-              <div class="dh">매칭 기준을 하나로 통일하지 않았습니다.</div>
-              <p>활동분야와 인증정보 두 축을 두고 게시판마다 어느 쪽으로 연결할지 고르게 했습니다. 그 선택에 따라 질문 작성 화면과 코치 답변 화면이 함께 바뀝니다.</p>
-            </div>
-          </div>
-
-          <div class="blk">
-            <div class="bl-lab">만든 것</div>
-            <div class="flow" style="margin-bottom:18px">
-              <div class="flow-h">코치 인증 — 네 유형 중 하나를 선택, 검증 주체는 유형별로 다름</div>
-              <div class="branch">
-                <div class="broot"><div class="brt">코치 인증 신청</div><div class="brd">네 가지 중 하나 선택<br>활동 분야 최대 10개</div></div>
-                <div class="bstem"></div>
-                <div class="bleaves">
-                  <div class="leaf"><span class="lt">자격증</span><span class="ld">자격증 사본 → 프로필에 자격 명칭</span><span class="pill manual">운영자 심사</span></div>
-                  <div class="leaf"><span class="lt">경력 · 재직</span><span class="ld">기업 메일 인증코드(10분) → 기업명·직무</span><span class="pill auto">자동 확인</span></div>
-                  <div class="leaf"><span class="lt">학교</span><span class="ld">학교 메일 또는 증빙 → 학교·전공</span><span class="pill auto">자동 + 보완 시 수동</span></div>
-                  <div class="leaf"><span class="lt">활동 포트폴리오</span><span class="ld">활동 URL·파일 → 활동 분야</span><span class="pill manual">운영자 심사</span></div>
-                </div>
-              </div>
-              <div class="flow-n">재직 인증은 서류 대신 기업 메일 인증코드로 자동 확인하고, 사람이 봐야 하는 두 유형만 심사로 남겼습니다.</div>
-            </div>
-
-            <div class="tbl-wrap">
-              <table>
-                <thead><tr><th>게시판 CMS 설정</th><th>질문 작성 화면</th><th>코치 답변 화면</th></tr></thead>
-                <tbody>
-                  <tr><td><b>활동분야로 연결</b></td><td>주제(분야) 선택</td><td>내 활동분야 질문만</td></tr>
-                  <tr><td><b>인증정보로 연결</b></td><td>학교·기업·직무 선택</td><td>내 인증정보와 맞는 질문만</td></tr>
-                  <tr><td><b>둘 다</b></td><td>분야 + 배경 함께 선택</td><td>두 조건 모두 반영</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="tcap">설정값에 따라 유저 화면과 코치 화면이 함께 바뀝니다.</div>
-
-            <ul style="margin-top:18px">
-              <li>코치 프로필을 <code>/expert/{id}</code>로 분리하고 인증·활동 분야·칼럼·후기를 한 화면에 모음</li>
-              <li>코치용 어드민에서 <b>내 조건에 맞는 질문만 걸러</b> 보여주는 답변 화면</li>
-              <li>기존 코치 인증 정보를 네 유형으로 옮기는 이관 범위와 예외 정리</li>
-              <li>커뮤니티별 ‘코치’ 명칭 변경(다국어 대응)</li>
-            </ul>
-
-            <div class="subnote"><b>후속 확장</b> — 코치만 쓰는 ‘전문가 칼럼’을 일반 글과 분리하고(작성 권한, 최소 글자 수, H1 목차, 글 하단 프로필), 칼럼과 작성자 정보를 검색엔진이 구조적으로 연결해 읽도록 Person/Article 구조화 데이터와 전용 사이트맵을 적용했습니다.</div>
-          </div>
-
-          <div class="blk">
-            <div class="bl-lab">결과</div>
-            <div class="res out"><ul>
-              <li>코치 기능을 켠 커뮤니티는 <b>개발 없이 CMS 설정만으로</b> 도입할 수 있게 됐습니다. 게시판별 연결 방식과 명칭도 운영팀이 직접 정합니다.</li>
-              <li>인증 범용화·프로필·어드민 2025년 12월, 매칭 개선 2026년 6월, 칼럼 작업 7월로 나눠 냈습니다.</li>
-            </ul>
-            <p class="subnote"><b>다음 확인 항목</b> — 매칭 변경 후 질문당 답변률과 인증 유형별 승인·반려 비율.</p></div>
-            <div class="tags"><span class="tag">#제품 구조</span><span class="tag">#인증 설계</span><span class="tag">#매칭</span><span class="tag">#CMS</span></div>
-          </div>
-
-        </div></div>
-      </article>
-
-      <!-- ===== 3. 등급제 ===== -->
-      <article class="proj reveal" id="p-grade">
-        <div class="proj-head">
-          <div class="proj-emoji">03</div>
-          <div class="proj-main">
-            <div class="chip-row"><span class="chip">커뮤니티 참여 · 운영</span><span class="chip d">2026.02 – 06</span></div>
-            <div class="proj-title">영향력 기반 커뮤니티 등급제</div>
-            <div class="proj-sub">글 수로 올라가던 등급을 남에게 도움이 된 정도로 바꾸고, 개별 등업 처리에서 벗어난 운영 방식을 만든 작업</div>
-          </div>
-          <div class="proj-toggle">+</div>
-        </div>
-        <div class="proj-body"><div class="proj-in">
-
-          <div class="blk">
-            <div class="bl-lab">상황</div>
-            <p>등급 하나에 세 가지 문제가 걸려 있어 우선순위를 높게 잡았습니다.</p>
-            <ul>
-              <li><b>품질</b> — 게시글·댓글 수만으로 등업이 되니 도배로도 올라갔고, 등급이 높다는 게 아무 뜻이 없었습니다</li>
-              <li><b>참여</b> — 유저가 다음 등급 조건을 알 수 없어 계속할 이유가 되지 못했습니다</li>
-              <li><b>운영</b> — 등업을 하나씩 손으로 처리했고, 저품질·신고 글을 다룰 CMS 화면은 없었습니다</li>
-            </ul>
-            <div class="role-line"><b>내 역할</b> — 점수 산식과 등급 기준 설계, 유저·CMS 화면 설계, 미적용 커뮤니티 예외 정리, QA. 산식과 등급 구조는 대표 컨펌을 받고 개발에 들어갔습니다.</div>
-          </div>
-
-          <div class="blk">
-            <div class="bl-lab">판단</div>
-            <div class="dec">
-              <div class="dh">점수의 중심을 ‘쓴 양’에서 ‘받은 반응’으로 옮겼습니다.</div>
-              <p>추천·스크랩·댓글을 글 수보다 높게 반영하고 <b>같은 사람이 여러 번 눌러도 한 번만 인정</b>하도록 했습니다. 소수가 서로 눌러주는 방식으로 점수가 오르면 바꾼 의미가 없어집니다. 저품질 판정·신고 누적·도배는 감점으로 뒀습니다.</p>
-            </div>
-            <div class="dec">
-              <div class="dh">승급 기준을 절대 점수 대신 상위 구간으로 잡았습니다.</div>
-              <p>커뮤니티 규모가 달라 같은 점수 기준을 쓰면 한쪽은 최상위가 넘치고 다른 쪽은 아무도 닿지 못합니다. 활동 분포에 따라 등급별 상위 구간을 설정하고, 상대 기준의 이탈 요인을 줄이려 하락 보호와 휴면 동결을 넣었습니다.</p>
-            </div>
-          </div>
-
-          <div class="blk">
-            <div class="bl-lab">만든 것</div>
-            <div class="flow" style="margin-bottom:18px">
-              <div class="flow-h">6등급 리그 — 월간 영향력 점수의 상위 구간으로 승급</div>
-              <div class="ladder">
-                <div class="rung" style="height:34%"><span class="rn">브론즈</span></div>
-                <div class="rung" style="height:47%"><span class="rn">실버</span></div>
-                <div class="rung" style="height:60%"><span class="rn">골드</span></div>
-                <div class="rung" style="height:73%"><span class="rn">플래티넘</span></div>
-                <div class="rung" style="height:86%"><span class="rn">마스터</span></div>
-                <div class="rung top" style="height:100%"><span class="rn">그랜드<br>마스터</span></div>
-              </div>
-              <div class="flow-n">활동 분포에 따라 등급별 상위 구간을 설정하고, 강등에는 하락 보호(Grace Rule)와 휴면 동결을 적용했습니다.</div>
-            </div>
-
-            <div class="tbl-wrap">
-              <table>
-                <thead><tr><th>구분</th><th>항목</th><th>반영</th></tr></thead>
-                <tbody>
-                  <tr><td><b>기본 활동</b></td><td>게시글·댓글 작성, 방문</td><td>낮게</td></tr>
-                  <tr><td><b>받은 반응</b></td><td>받은 추천·스크랩·공유</td><td>높게</td></tr>
-                  <tr><td><b>고유 유저</b></td><td>반응한 사람 수 (같은 사람은 1회만)</td><td>가점</td></tr>
-                  <tr><td><b>감점</b></td><td>저품질 판정·신고 누적·도배</td><td>차감</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="tcap">월간 영향력 점수(MIS) 구조. 가중치 값은 내부 기준이라 방향만 적었습니다.</div>
-
-            <ul style="margin-top:18px">
-              <li>등급 운영을 <b>수동 / 조건 자동 / 점수 자동</b> 중에서 고르게 함. 자체 기준으로 운영하던 커뮤니티가 있어 새 산식을 일괄 적용할 수 없었습니다</li>
-              <li>프로필 등급 카드를 <b>영향력 점수와 다음 등급까지 남은 활동</b> 중심으로 변경. 랭킹 탭과 월간 리포트(등급별 일부 잠금) 추가</li>
-              <li>CMS에 등급 분포·이동·품질 통계와 저품질 게시글을 유형별로 보는 화면 신설</li>
-              <li>점수 재계산 부하 때문에 정산 주기를 나누고, ‘지금 점수’와 ‘등급이 바뀌는 시점’을 화면에서 분리</li>
-            </ul>
-          </div>
-
-          <div class="blk">
-            <div class="bl-lab">결과</div>
-            <div class="res out"><ul>
-              <li>2026년 6월에 적용하고 CMS 운영 가이드를 전달했습니다. 운영팀이 승급 방식을 직접 설정할 수 있어 <b>개별 등업을 하나씩 처리하지 않아도 되는 구조</b>를 마련했습니다.</li>
-              <li>저품질 게시글을 다루는 화면은 그전에 없던 기능입니다.</li>
-              <li>측정용 GA 이벤트를 기획 단계에서 정의해 적용 시점부터 데이터를 쌓고 있습니다.</li>
-            </ul>
-            <p class="subnote"><b>다음 확인 항목</b> — 가중치 초기값은 벤치마크와 내부 추정으로 정했습니다. 첫 정산 이후 등급 분포를 보고 조정할 예정입니다.</p></div>
-            <div class="tags"><span class="tag">#참여 설계</span><span class="tag">#어뷰징</span><span class="tag">#운영 부담</span><span class="tag">#CMS</span></div>
-          </div>
-
-        </div></div>
-      </article>
-
-      <!-- ===== 4. 집무실 B2B ===== -->
-      <article class="proj reveal" id="p-b2b">
-        <div class="proj-head">
-          <div class="proj-emoji">04</div>
-          <div class="proj-main">
-            <div class="chip-row"><span class="chip">집무실(알리콘) · B2B</span><span class="chip d">2022</span></div>
-            <div class="proj-title">B2B 통합 웹페이지 개편</div>
-            <div class="proj-sub">기업 상담 문의가 적던 페이지를, 공간 소개 대신 도입 근거부터 설득하는 흐름으로 다시 구성</div>
-          </div>
-          <div class="proj-toggle">+</div>
-        </div>
-        <div class="proj-body"><div class="proj-in">
-
-          <div class="blk">
-            <div class="bl-lab">상황</div>
-            <p>워크라운지를 기업에 소개하는 웹페이지였는데 상담 문의가 적었습니다. 시설 소개가 앞에 있었고 상담으로 넘어가는 동선이 약했습니다.</p>
-            <div class="role-line"><b>내 역할</b> — 스토리라인 재구성, 상담 신청 폼 설계, 영업팀과 상담 데이터 확인.</div>
-          </div>
-
-          <div class="blk">
-            <div class="bl-lab">판단</div>
-            <div class="dec">
-              <div class="dh">기업 담당자가 이 페이지에서 찾는 건 공간의 좋음이 아니라 도입할 근거라고 봤습니다.</div>
-              <p>스토리라인을 ‘왜 지금 워크라운지가 필요한가’에서 시작하도록 다시 구성하고, 시설 소개는 그다음 순서로 옮겼습니다.</p>
-            </div>
-            <div class="dec">
-              <div class="dh">상담 신청에 내용 입력 칸을 넣었습니다.</div>
-              <p>입력 항목이 늘면 전환이 떨어질 수 있다는 점을 알고 넣었습니다. 상담 전에 고객의 요구를 확인할 수 있어 영업팀이 첫 응대에 필요한 맥락을 확보했고, 그 데이터를 함께 봤습니다.</p>
-            </div>
-          </div>
-
-          <div class="blk">
-            <div class="bl-lab">결과</div>
-            <div class="res num">
-              <div class="chart lead">
-                <div class="ct">기업 상담 문의율</div><div class="cs">개편 전 → 개편 후 · 2022년 당시 내부 지표</div>
-                <div class="brow"><span class="bl">개편 전</span><div class="track"><div class="bar before" data-w="40"></div></div><span class="bv">기준 100</span></div>
-                <div class="brow b-after"><span class="bl">개편 후</span><div class="track"><div class="bar after" data-w="100"></div></div><span class="bv">250 이상</span></div>
-                <div class="cn">150% 이상 증가 · 실제 문의 건수는 외부 공개 제외</div>
-              </div>
-            </div>
-            <div class="tags"><span class="tag">#B2B</span><span class="tag">#전환</span><span class="tag">#세일즈 협업</span></div>
-          </div>
-
-        </div></div>
-      </article>
-
     </div>
   </div>
 </section>
@@ -809,10 +847,20 @@
 <section id="more">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div class="sec-tag">ADDITIONAL WORK</div>
+      <div class="eyebrow">ADDITIONAL WORK</div>
       <h2 class="sec-title">그 밖에 한 일</h2>
     </div>
     <div class="etc reveal">
+
+      <div class="row">
+        <div><div class="en">영향력 기반 커뮤니티 등급제</div><div class="ep">모네플 · 2026.04 – 06</div></div>
+        <div class="ed">글을 많이 쓰면 등급이 오르던 구조를, <b>다른 사람에게 받은 반응(추천·스크랩·공유)을 더 높게 보는 점수 방식</b>으로 바꿨습니다. 커뮤니티마다 규모가 달라 점수 몇 점이 아니라 그 커뮤니티 안에서 상위 몇 %인지를 기준으로 삼았고, 같은 사람이 여러 번 누른 건 한 번만 셉니다. 자동 등업 기능은 원래 있었지만 운영팀이 쓰지 않고 손으로 처리하고 있어, 새 기준에 맞춰 다시 만들었습니다. 2026년 6월 적용 후 운영자가 CMS에서 승급 방식을 직접 고릅니다.</div>
+      </div>
+
+      <div class="row">
+        <div><div class="en">크리에이터 Pick · 파트너스 콘텐츠 노출</div><div class="ep">서플 · 2026.09</div></div>
+        <div class="ed">서플 웹에 파트너스 콘텐츠가 노출될 자리가 없어 전용 탭과 상세 페이지를 만들었습니다. 배포 전에 측정 이벤트를 먼저 정의해 둔 덕에 9월 30일 배포 직후부터 지표를 확인할 수 있었습니다. <b>하루 평균 클릭은 61.6회에서 492.7회로 늘었지만 끝까지 읽은 비율은 21%에서 9%로 떨어져</b>, 다음 과제를 완독률로 잡았습니다.</div>
+      </div>
 
       <div class="row">
         <div><div class="en">B2B 화훼 커머스 초기 구축</div><div class="ep">플룸 · 2024.03 – 08</div></div>
@@ -824,43 +872,46 @@
         <div class="ed">무인 간식 구매 퍼널에서 90% 이탈을 확인하고, 요일별 푸시와 랜딩 콘텐츠로 2주간 검증했습니다. 푸시 CTR 42%, 발송 인원의 11%가 확인 후 구매. 이용률이 20% 올랐지만 푸시 효과로 보기 어려워 <b>가설을 기각</b>하고, BigQuery로 발송 시각과 타겟이 어긋난 것을 확인했습니다.</div>
       </div>
 
+
       <div class="row">
-        <div><div class="en">EAP 앱 온보딩 · 챌린지</div><div class="ep">2024.11 – 2025.04</div></div>
-        <div class="ed">회원가입 오류가 반복돼 CS 문의와 초기 이탈이 있었습니다. 한 번 지나가면 다시 볼 수 없는 튜토리얼을 웰컴 스크린으로 바꾸고 둘러보기·문의하기 진입점을 붙여, 가입에 막힌 사람이 다른 경로로 갈 수 있게 했습니다. 생년월일 수집도 제외했고, 챌린지 뱃지 조건은 절대 인원 대신 참여율(멤버십의 50%)로 정의했습니다. <b>가입 퍼널 이벤트를 미리 심지 않아 효과를 숫자로 말하지 못했습니다.</b></div>
+        <div><div class="en">B2B 통합 웹페이지 개편</div><div class="ep">집무실 · 2022</div></div>
+        <div class="ed">워크라운지를 기업에 소개하는 페이지인데 상담 문의가 적었습니다. 시설 사진과 소개가 맨 앞에 있어서, ‘왜 지금 워크라운지가 필요한가’로 시작하도록 순서를 다시 짜고 시설 소개를 뒤로 옮겼습니다. 영업팀이 상담 내용을 미리 파악할 수 있도록 신청 폼에 문의 내용 항목을 추가했습니다. 개편 후 기업 상담 문의가 150% 이상 늘었습니다(2022년 당시 내부 지표, 실제 건수는 외부 공개 제외).</div>
       </div>
 
       <div class="row">
-        <div><div class="en">커뮤니티 SEO 개선 · 도메인 통합</div><div class="ep">2025.09 – 2026.04</div></div>
-        <div class="ed">커뮤니티마다 도메인이 나뉘어 검색 유입이 각자 쌓였고, CSR로 그려지던 댓글·추천은 색인되지 않았습니다. 댓글·추천을 SSR로 전환하고 도메인 통합을 커뮤니티 단위로 진행했습니다. 기존 유입을 잃을 수 있어 한 곳을 먼저 하고 지표를 확인한 뒤 다음으로 넘어갔습니다. 성능이 정체된 지점에서는 Astro를 시험 적용하고 전체로 확대했습니다. 통합 전후로 GSC 클릭·노출이 늘었지만, 시점과 발행량이 달라 통합만의 효과로 분리하지는 못했습니다.</div>
+        <div><div class="en">EAP 앱 온보딩 · 챌린지</div><div class="ep" style="margin-top:2px">기업 임직원 지원 프로그램 앱</div><div class="ep">넛지헬스케어 · 2024.11 – 2025.04</div></div>
+        <div class="ed">회원가입 오류가 반복돼 CS 문의와 초기 이탈이 있었습니다. 한 번 지나가면 다시 볼 수 없는 튜토리얼을 웰컴 스크린으로 바꾸고 둘러보기·문의하기 진입점을 붙여, 가입에 막힌 사람이 다른 경로로 갈 수 있게 했습니다. 생년월일 수집도 제외했고, 챌린지 뱃지 조건은 절대 인원 대신 참여율(멤버십의 50%)로 정의했습니다.</div>
       </div>
 
       <div class="row">
-        <div><div class="en">SEO 주제 허브페이지</div><div class="ep">2026.01 – 05</div></div>
-        <div class="ed">같은 주제의 글이 쌓여도 대표 페이지가 없었습니다. 운영팀이 커뮤니티마다 주제 10개를 고르면 허브 페이지가 자동 생성되도록 하고, 키워드 매핑에 품질 조건(삭제·숨김 제외, 글자 수·댓글 수)을 더해 글을 골랐습니다. canonical·구조화 데이터·SSR·사이트맵을 정의하고 커뮤니티 홈에 진입점을 넣었습니다. 자동 주제 선정은 다음 단계로 남아 있습니다.</div>
+        <div><div class="en">커뮤니티 SEO 개선 · 도메인 통합</div><div class="ep">모네플 · 2025.09 – 2026.04</div></div>
+        <div class="ed">커뮤니티마다 주소(도메인)가 나뉘어 검색 유입이 각자 쌓였고, 브라우저가 그리던 댓글·추천은 검색엔진에 잡히지 않았습니다. 댓글·추천을 서버가 미리 그려 보내도록 바꾸고, 도메인 통합을 커뮤니티 단위로 진행했습니다. 기존 유입을 잃을 수 있어 한 곳을 먼저 하고 지표를 확인한 뒤 다음으로 넘어갔습니다. 통합 전후로 GSC 클릭·노출이 늘었지만, 시점과 발행량이 달라 통합만의 효과로 분리하지는 못했습니다.</div>
       </div>
 
       <div class="row">
-        <div><div class="en">기타</div><div class="ep">2022 – 2026</div></div>
-        <div class="ed"><b>게시글 리스트·상세 UX</b> — 제목 두 줄 처리, 임베딩 아이콘, 코치 답변 미리보기로 리스트 정보량을 늘리고 목록 SSR 전환과 댓글 구조 개편(일부 개발 중). <b>과채음료 MVP ‘볼리’</b>(대학원) — 설문·SNS 광고로 수요 확인 후 제품·앱 설계.</div>
+        <div><div class="en">게시글 · 댓글 UX 개선</div><div class="ep">모네플 · 2026.05 – 07</div></div>
+        <div class="ed">도움이 되는 댓글이 수많은 댓글 사이에 묻혀 있었습니다. 5월에 유용한 댓글을 먼저 보도록 댓글 영역을 다시 구성하고, 7월에는 글을 읽은 뒤 반응을 남기기 쉽도록 추천·공유·스크랩 버튼 영역을 고쳤습니다. 리스트는 제목 두 줄 처리, 임베딩 아이콘, 코치 답변 미리보기로 정보량을 늘렸습니다. 배포 전후 4주를 비교하면 <b>댓글 1개당 평균 추천이 0.023에서 0.042로 83% 늘었고</b>, 글 1,000회 조회당 추천은 3.56에서 4.00으로 12% 늘었습니다. 같은 기간 <b>스크랩은 0.87에서 0.60으로 줄어</b> 원인을 후속 과제로 두고 있습니다. 댓글 수 자체는 9% 줄었습니다.</div>
       </div>
 
     </div>
-    <div class="note">※ 사내 공개 협업 기록을 바탕으로 작성했습니다. 고객사·커뮤니티 실명과 일부 내부 수치는 외부 공개를 위해 일반화했습니다.</div>
+    <div class="note">※ 사내 공개 협업 기록 기준입니다. 고객사·커뮤니티 실명과 일부 내부 수치는 일반화했습니다.<br>
+      ※ 수치는 커뮤니티 DB의 게시글·댓글·조회 기록을 직접 조회해 계산했습니다. 한국 시간 기준, 2026년 9월 30일 조회이며 자동 생성 글이 대부분인 커뮤니티 1곳은 제외했습니다. 추천·스크랩은 각 기간에 작성된 글의 현재 누적값이라 조회 1,000회당 비율로 비교했습니다.<br>
+      ※ A/B 테스트가 아니라 배포 전후 비교입니다. 같은 시기의 다른 배포나 계절 영향이 섞여 있을 수 있고, 비로그인 조회에는 봇 조회가 일부 포함될 수 있습니다.</div>
   </div>
 </section>
 
 <!-- HOW I WORK -->
-<section id="how" style="background:var(--bg-2)">
+<section id="how" class="band">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div class="sec-tag">HOW I WORK</div>
+      <div class="eyebrow">HOW I WORK</div>
       <h2 class="sec-title">일하는 방식</h2>
     </div>
     <div class="ways">
-      <div class="way reveal"><div class="wn">01</div><h3>요청보다 풀어야 할 문제를 먼저 봅니다</h3><p>집무실 룸서비스는 구매가 늘지 않던 상황이었습니다. 콘텐츠를 더 만들기 전에 퍼널부터 봤고, 구매 시나리오에서 90%가 빠져나가고 있었습니다. 푸시 실험 뒤 이용률이 20% 올랐을 때도 푸시 효과인지 따져 가설을 기각했습니다.</p></div>
-      <div class="way reveal"><div class="wn">02</div><h3>결정할 쟁점과 선택지를 눈에 보이게 정리합니다</h3><p>주제 허브에서 전문가 칼럼·인기글·최신 글을 어떤 순서로 보여줄지가 남아 있었습니다. 순서를 코드에 넣는 단기안과 운영팀이 CMS에서 바꾸는 중장기안을 비용과 유연성으로 비교해 두 안으로 정리하고, 판단은 팀이 하도록 넘겼습니다.</p></div>
-      <div class="way reveal"><div class="wn">03</div><h3>사용자 영향과 개발 리소스로 범위와 순서를 정합니다</h3><p>검색에서 엔진 개선은 백엔드 작업이 커서 2주 안에 결과를 볼 수 없었고, 그 기간 안에 할 수 있는 것부터 했습니다. 반대로 SEO는 주간 GSC 지표로 유입 기여를 설명해 광고 관리보다 앞에 뒀습니다.</p></div>
-      <div class="way reveal"><div class="wn">04</div><h3>배포 전에 무엇을 보고 판단할지 정합니다</h3><p>EAP 온보딩에서는 가입 퍼널 이벤트를 미리 심지 않아 효과를 숫자로 말하지 못했습니다. 검색부터는 목표치를 먼저 정하고 GA 이벤트를 정의해 전달했고, 등급제에서는 기획서 단계에서 함께 확정했습니다.</p></div>
+      <div class="way reveal"><span class="wn">01</span><h3>반복되는 요청은 설정 가능한 구조로 한 번 개발합니다</h3><p>커뮤니티별 요청을 그때마다 기능으로 추가하면 커뮤니티가 늘어날 때마다 개발이 반복됩니다. 전문가 기능은 사용할 인증 유형, 게시판별 질문 매칭 기준, 전문가 명칭을 운영자가 CMS에서 바꿀 수 있게 만들어, 이후 도입에는 개발이 들어가지 않습니다.</p></div>
+      <div class="way reveal"><span class="wn">02</span><h3>이미 있는 기능이 쓰이지 않으면 기준부터 다시 봅니다</h3><p>등급제에는 자동 등업 기능이 이미 있었는데 운영팀은 쓰지 않고 손으로 처리하고 있었습니다. 기능을 추가하는 대신 왜 안 쓰는지부터 보고, 새로 정의한 등급 기준에 맞춰 자동 등업을 다시 만들었습니다.</p></div>
+      <div class="way reveal"><span class="wn">03</span><h3>한 곳에서 먼저 적용하고 지표를 확인한 뒤 넓힙니다</h3><p>서버 렌더링 전환과 Astro 이전은 커뮤니티 한 곳에 먼저 적용해 지표를 확인한 뒤 다음 커뮤니티로 넘어갔습니다. 전문가 기능도 인증·프로필·어드민, 매칭 개선, 전문가 칼럼을 세 번에 나누어 배포했습니다.</p></div>
+      <div class="way reveal"><span class="wn">04</span><h3>성과 수치는 직접 조회해 확인합니다</h3><p>기획서 단계에서 GA 이벤트 정의를 먼저 확정해 개발팀에 전달합니다. 성과는 커뮤니티 DB와 GA에서 직접 조회한 값만 사용하고, 측정 기간·집계 기준·제외 조건을 함께 기재합니다.</p></div>
     </div>
   </div>
 </section>
@@ -869,13 +920,13 @@
 <section id="education">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div class="sec-tag">EDUCATION &amp; TOOLS</div>
+      <div class="eyebrow">EDUCATION &amp; TOOLS</div>
       <h2 class="sec-title">학력 · 도구</h2>
     </div>
     <div class="edu-grid">
-      <div class="edu reveal"><div class="ed-h">성균관대학교 — 서비스융합디자인협동과정 (석사)</div><div class="ed-m">2021.03 – 2023.08</div><p>더블 다이아몬드 방법론으로 서비스 전 과정을 설계했습니다. 삼성 비스포크 큐커, 아이레시피 토너 제품 서비스 디자인.</p></div>
-      <div class="edu reveal"><div class="ed-h">서울여자대학교 — 디지털미디어학과 (학사)</div><div class="ed-m">2016.03 – 2021.02</div><p>디자인·영상·프로그래밍(JavaScript·C++·C#)을 배우고 인터랙션 디자인을 중심으로 공부했습니다. 한국멀티미디어학회에 연구 게재.</p></div>
-      <div class="edu reveal"><div class="ed-h">활동 · 수상</div><div class="ed-m">2019 – 2023</div><ul><li>한솔제지 기술개발 인턴 — 공정 약품 데이터 상관분석(Python)</li><li>KOCCA 멀티미디어 액트 · 콘텐츠 임팩트 참여</li></ul></div>
+      <div class="edu reveal"><div class="ed-h">성균관대학교 서비스융합디자인협동과정 (석사)</div><div class="ed-m">2021.03 – 2023.08</div><p>더블 다이아몬드 방법론으로 서비스 전 과정을 설계했습니다. 삼성 비스포크 큐커, 아이레시피 토너 제품 서비스 디자인.</p></div>
+      <div class="edu reveal"><div class="ed-h">서울여자대학교 디지털미디어학과 (학사)</div><div class="ed-m">2016.03 – 2021.02</div><p>디자인·영상·프로그래밍(JavaScript·C++·C#)을 배우고 인터랙션 디자인을 중심으로 공부했습니다. 한국멀티미디어학회에 연구 게재.</p></div>
+      <div class="edu reveal"><div class="ed-h">활동 · 수상</div><div class="ed-m">2019 – 2023</div><ul><li>한솔제지 기술개발 인턴, 공정 약품 데이터 상관분석(Python)</li><li>KOCCA 멀티미디어 액트 · 콘텐츠 임팩트 참여</li></ul></div>
       <div class="edu reveal"><div class="ed-h">Skills &amp; Tools</div><div class="ed-m">기획 · 데이터 · 디자인</div>
         <div class="chips">
           <span>UX 기획</span><span>PRD·정책 문서</span><span>서비스 디자인</span><span>SQL</span><span>Python</span><span>Google Analytics</span><span>Search Console</span><span>Amplitude</span><span>BigQuery</span><span>Figma</span><span>HTML/CSS</span><span>영어 OPIc IH</span>
@@ -889,7 +940,7 @@
 <section class="contact" id="contact">
   <div class="wrap reveal">
     <h2>연락처</h2>
-    <p>현장에서 반복되는 불편을 그냥 익숙한 일로 남겨두지 않는 제품을 만들고 싶습니다.<br>사용자와 운영자의 문제를 함께 풀어갈 PM이 필요하다면 연락 주세요.</p>
+    <p>사용자가 쓰는 화면과 운영자가 쓰는 CMS를 함께 기획할 사람이<br>필요하시면 연락 주세요.</p>
     <div class="cta">
       <a href="mailto:cobalt3313@gmail.com" class="btn p">cobalt3313@gmail.com</a>
       <a href="tel:01074769971" class="btn g">010-7476-9971</a>
@@ -900,6 +951,7 @@
 <footer><div class="wrap">© 2026 남윤아 · 프로덕트 기획자 / PM</div></footer>
 
 <div class="lb" id="lb"><span class="lbx">&times;</span><img alt="" id="lbimg"></div>
+
 
 <script>
 (function(){
@@ -970,6 +1022,69 @@
   });
   addEventListener('keydown', function(e){ if (e.key === 'Escape' && lb.classList.contains('on')) { lb.classList.remove('on'); lbimg.src=''; } });
 
+  /* 상단 통계: 화면에 들어오면 0부터 세어 올라감 */
+  (function(){
+    var ns = document.querySelectorAll('.stats .n');
+    if(!ns.length || !('IntersectionObserver' in window)) return;
+    var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    ns.forEach(function(el){
+      var node = el.firstChild;
+      if(!node || node.nodeType !== 3) return;
+      var raw = node.textContent.trim();
+      var target = parseFloat(raw);
+      if(isNaN(target)) return;
+      var dec = (raw.split('.')[1] || '').length;
+      el.dataset.raw = raw;
+      if(reduce) return;
+      var seen = false;
+      var ob = new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if(!e.isIntersecting || seen) return;
+          seen = true; ob.unobserve(el);
+          var t0 = 0, dur = 1000;
+          function step(t){
+            if(!t0) t0 = t;
+            var k = Math.min(1, (t - t0) / dur);
+            node.textContent = (target * (1 - Math.pow(1 - k, 3))).toFixed(dec);
+            if(k < 1) requestAnimationFrame(step); else node.textContent = raw;
+          }
+          node.textContent = (0).toFixed(dec);
+          requestAnimationFrame(step);
+        });
+      }, {threshold:.45});
+      ob.observe(el);
+    });
+  })();
+
+  /* 히어로: 단어 단위로 올라오며 등장 */
+  (function(){
+    var box = document.querySelector('.hero-in');
+    var h1 = box && box.querySelector('h1.hero');
+    if(!box || !h1) return;
+    var walker = document.createTreeWalker(h1, NodeFilter.SHOW_TEXT, null, false);
+    var texts = [], n;
+    while((n = walker.nextNode())) texts.push(n);
+    texts.forEach(function(node){
+      var frag = document.createDocumentFragment();
+      node.textContent.split(/(\s+)/).forEach(function(part){
+        if(!part) return;
+        if(/^\s+$/.test(part)){ frag.appendChild(document.createTextNode(part)); return; }
+        var w = document.createElement('span'); w.className = 'ap';
+        var inner = document.createElement('i'); inner.textContent = part;
+        w.appendChild(inner); frag.appendChild(w);
+      });
+      node.parentNode.replaceChild(frag, node);
+    });
+    var words = h1.querySelectorAll('.ap > i');
+    words.forEach(function(w, i){ w.style.transitionDelay = (170 + i * 48) + 'ms'; });
+    var eb = box.querySelector('.eyebrow'), sub = box.querySelector('.hero-sub'), cta = box.querySelector('.cta');
+    var tail = 170 + words.length * 48;
+    if(eb) eb.style.transitionDelay = '40ms';
+    if(sub) sub.style.transitionDelay = (tail + 60) + 'ms';
+    if(cta) cta.style.transitionDelay = (tail + 180) + 'ms';
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ box.classList.add('go'); }); });
+  })();
+
   var io = new IntersectionObserver(function(es){
     es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, {threshold:.08});
@@ -978,125 +1093,31 @@
     io.observe(el);
   });
 
-  /* 히어로 그래픽 — 마우스에 아주 약하게(±6px) 반응. 히어로를 벗어나면 정지.
-     모바일과 reduced-motion 에서는 정적으로 둔다. */
-  (function(){
-    var art = document.querySelector('#heroArt .art');
-    var hero = document.getElementById('top');
-    if (!art || !hero) return;
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    if (matchMedia('(max-width: 900px)').matches) return;
-    var inHero = true, raf = 0, mx = 0, my = 0, cx = 0, cy = 0;
-    var MAX = 6;
-    function tick(){
-      cx += (mx - cx) * .07; cy += (my - cy) * .07;
-      art.style.transform = 'translate3d(' + cx.toFixed(2) + 'px,' + cy.toFixed(2) + 'px,0)';
-      raf = Math.abs(mx - cx) > .05 || Math.abs(my - cy) > .05 ? requestAnimationFrame(tick) : 0;
-    }
-    addEventListener('mousemove', function(e){
-      if (!inHero) return;
-      mx = (e.clientX / innerWidth - .5) * 2 * MAX;
-      my = (e.clientY / innerHeight - .5) * 2 * MAX;
-      if (!raf) raf = requestAnimationFrame(tick);
-    }, {passive:true});
-    if ('IntersectionObserver' in window) {
-      new IntersectionObserver(function(es){
-        inHero = es[0].isIntersecting;
-        if (!inHero) { mx = my = 0; if (!raf) raf = requestAnimationFrame(tick); }
-      }, {threshold:0}).observe(hero);
-    }
-  })();
-
   function expandAll(){
     document.querySelectorAll('.bar[data-w]').forEach(function(b){ b.dataset.done='1'; b.style.width = b.dataset.w + '%'; });
     document.querySelectorAll('.reveal').forEach(function(e){ e.classList.add('in'); e.style.transitionDelay='0ms'; });
     document.querySelectorAll('.proj').forEach(function(p){ p.classList.add('open'); p.querySelector('.proj-body').style.maxHeight = 'none'; });
     document.querySelectorAll('details.more').forEach(function(d){ d.open = true; });
+    var hb = document.querySelector('.hero-in'); if(hb) hb.classList.add('go');
+    document.querySelectorAll('.stats .n[data-raw]').forEach(function(el){
+      if(el.firstChild && el.firstChild.nodeType === 3) el.firstChild.textContent = el.dataset.raw;
+    });
   }
   addEventListener('beforeprint', expandAll);
   if (matchMedia) { var mq = matchMedia('print'); if (mq.addListener) mq.addListener(function(m){ if(m.matches) expandAll(); }); }
 })();
+/* 첫 프로젝트는 펼친 상태로 시작 */
+(function(){
+  var p = document.querySelector('.proj');
+  if(!p) return;
+  p.classList.add('open');
+  var b = p.querySelector('.proj-body');
+  addEventListener('load', function(){ b.style.maxHeight = b.scrollHeight + 'px'; });
+  b.style.maxHeight = b.scrollHeight + 'px';
+  p.querySelectorAll('.bar[data-w]').forEach(function(x,i){
+    x.dataset.done='1'; setTimeout(function(){ x.style.width = x.dataset.w + '%'; }, 240 + i*70);
+  });
+})();
 </script>
-
-<!--
-================================================================
-작업 메모 (화면 비노출)
-================================================================
-
-[A] 사실 확인이 필요한 항목
-
-  ▸ TODO — AND 검색과 관련도순 정렬의 실제 구현 범위 확인 필요
-    기존 API 지원 / 프론트 후처리 / 백엔드 수정 여부.
-    화면에는 '적용'으로만 적고 구현 주체를 단정하지 않았음.
-    '검색 서버는 수정하지 않았다'는 서술은 이번 버전에서 뺐음(위 항목과 충돌 가능).
-
-  ▸ TODO — 집무실 B2B 웹을 대표 프로젝트로 유지할지 검토
-    개편 전/후 화면, 상담 폼 변경 전후, 문의율 정의와 비교 조건 자료가 없다면
-    룸서비스 구매 전환 실험을 대표 프로젝트로 교체하는 편이 나음.
-    (임의 교체하지 않고 현행 유지)
-
-  ▸ '기존 코치 데이터 이관' — 원본 HTML에는 없던 내용으로, 이번 요청에서 핵심으로
-    지정되어 다시 넣었음. 실제 범위(전량 이관 / 일부 예외 / 재인증 유도)를 확인해
-    문장을 구체화할 것.
-
-  ▸ 시점 확인 — 전문가 기능 2025.12 / 2026.06 / 2026.07, 등급제 2026.06,
-    주제 허브 적용 시점과 적용 커뮤니티 수.
-
-  ▸ 검색 — '검색 이용자 4,200 → 8,700'의 산출 기준(세션/사용자)과 기간 정의.
-    게시글 클릭 세션 비중은 31일 vs 14일 비교라, 같은 길이로 재산출 가능한지 확인.
-
-  ▸ 사실은 맞지만 '이유'를 추정으로 쓴 문장 (본인 판단과 다르면 수정)
-    - 코치: '자유롭게 열어주면 심사 기준과 관리 화면이 커뮤니티 수만큼 늘어납니다'
-    - 등급제: '소수가 서로 눌러주는 방식으로 점수가 오르면 바꾼 의미가 없어집니다'
-    - 등급제: '한쪽은 최상위가 넘치고 다른 쪽은 아무도 닿지 못합니다'
-    - SEO 통합: '기존 유입을 잃을 수 있는 작업이라 한 곳을 먼저 하고'
-    - EAP: 참여율 기준 뱃지를 택한 이유
-    - B2B: '기업 담당자가 찾는 건 도입할 근거라고 봤습니다'
-
-[B] 추가 자료가 있으면 강화할 수 있는 부분
-  - 전문가 기능 / 등급제 화면 캡처. images 폴더에 아래 파일명으로 넣으면 자동 표시.
-    coach-profile, coach-cms, coach-admin, grade-card, grade-report,
-    grade-cms-stats, grade-lowquality, hub-page, hub-cms, eap-onboarding, eap-challenge
-  - 등급제 첫 정산 이후 등급 분포 → '다음 확인 항목'을 '결과'로 옮길 수 있음
-  - 전문가 기능 매칭 개선 전후 질문당 답변률 → 같은 처리 가능
-  - 집무실 B2B 개편 전/후 화면과 상담 폼 → 대표 프로젝트 유지 근거 보강
-  - 플룸 0→1 결과 지표(런칭 후 거래 건수·입점사 수 등) → 대표 프로젝트 승격 가능
-
-[C-1] v11 이후 추가 삭제 (사용자 요청)
-  - 검색 결과의 caveat 박스 삭제("참고 지표 둘은 같은 잣대의 전후 비교가 아닙니다…").
-    '참고 지표 — 기준이 다르거나 계절성이 섞임' 라벨과 '산식과 측정 조건' 접기는 유지.
-  - 집무실 결과의 caveat 박스 삭제("같은 시기에 마케팅 활동이 함께 있었고…").
-    → 집무실 프로젝트에는 측정 한계 문구가 남아 있지 않음. 면접에서 물으면
-       "웹 개편과 같은 시기에 마케팅 활동이 있어 단독 효과로 분리하지 못했다"고 답할 것.
-  - 연락처의 Surfit·Notion 링크 삭제, 문구 교체.
-
-[C] 이번 버전에서 삭제하거나 축소한 내용
-  - 포지셔닝: '공간과 플랫폼이 맞물리는 자리', '사람이 모이는 자리',
-    '운영하는 쪽의 플랫폼' 등 추상 표현 전부 삭제.
-  - 카페 경험: About 첫 문단 3문장으로 축소. 'CMS가 결국 카페에서 본 그 화면' 문장 삭제
-    (카페 POS와 커뮤니티 CMS를 같은 제품처럼 연결하지 않음).
-  - 구어체 조정: 갈아엎었습니다 → 다시 정의했습니다 / 손대지 않기로 했습니다 →
-    1차 범위에서 제외했습니다 / CMS로 뺐습니다 → CMS 설정 항목으로 분리했습니다 /
-    통일하려다 접었습니다 → 통일하지 않았습니다 / 가설을 접었습니다 → 가설을 기각했습니다 /
-    '다른 일에 묶여 있었습니다' 삭제.
-  - '확인하지 못한 것' 블록 4개 → 결과 아래 한 문장(각주) 또는 '다음 확인 항목' 한 줄로 통합.
-    '배운 점'은 실제로 업무 방식이 바뀐 검색 프로젝트 1건만 유지.
-  - 검색 프로젝트: 상황 서술 정정(16.7%는 '검색 실행 대비'가 아니라 '검색 관련 페이지 집계
-    기준 게시글 이동 비율'), 지표명 '리스트 클릭률' → '게시글 클릭 세션 비중',
-    같은 기준 지표를 크게 먼저 배치하고 참고 지표 2개는 위계를 낮춤,
-    산식·측정 조건은 details 안으로만.
-  - 전문가 기능: 칼럼·500자·H1 목차·구조화 데이터·사이트맵을 '후속 확장' 한 문단으로 축약.
-    '검색엔진이 글쓴이를 전문가로 인식할 수 있게' → '검색엔진이 구조적으로 연결해 읽을 수 있도록'.
-  - 등급제: 상황을 품질·참여·운영 세 갈래로 정리해 우선순위 근거를 앞에 둠.
-    사다리의 '상위 X%' 반복 라벨 삭제 → '커뮤니티 활동 분포에 따라 상위 구간 설정'.
-    산식표 4열 → 3열. '수동 등업 요청이 CMS 설정으로 대체됐다' → '개별 등업을 하나씩
-    처리하지 않아도 되는 구조를 마련했다'.
-  - 집무실: '내부 영업 비용도 줄었습니다' → '영업팀이 첫 응대에 필요한 맥락을 확보'.
-  - 일하는 방식: 사례를 집무실(01) / 모네플(02·03·04)로 분산.
-  - Additional Work: 7개 → 5개 + '기타' 1행. 게시글 리스트·상세와 대학원 프로젝트를
-    기타로 묶음. 플룸과 룸서비스를 앞으로 올려 타사 경험을 먼저 보이게 함.
-  - 히어로 지표: '검색 이용자 +106%'(계절성 포함) → '게시글 클릭 세션 비중 +76%'(같은 기준)로 교체.
-================================================================
--->
 </body>
 </html>
